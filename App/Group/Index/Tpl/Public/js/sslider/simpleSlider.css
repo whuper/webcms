@@ -1,0 +1,84 @@
+/* simpleSlider default settings */
+.simpleSlider {
+    position: relative;
+}
+
+.simpleSlider ul,
+.simpleSlider ul li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.simpleSlider ul li {
+    overflow: hidden;
+}
+
+.simpleSlider div.simpleSlider-title {
+    display: block;
+    background: transparent;
+    color: #FFF;
+    padding: 10px;
+}
+
+.simpleSlider div.simpleSlider-title div.simpleSlider-title-transparency {
+    background: #000;
+}
+
+.simpleSlider ol.simpleSlider-navigation-buttons {
+    position: absolute;
+    bottom: 10px;
+    right: 90px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 2001;
+}
+
+.simpleSlider ol.simpleSlider-navigation-buttons li {
+    display: inline-block;
+    margin: 3px;
+    zoom: 1;
+    *display: inline;
+}
+
+.simpleSlider ol.simpleSlider-navigation-buttons a.simpleSlider-navigation-button {
+    display: inline-block;
+    /*border-radius: 4px;*/
+    background: transparent;
+    padding: 6px 4px;
+    color: #FFF;
+    border: 1px solid #ACACAC;
+    zoom: 1;
+    *display: inline;
+}
+
+.simpleSlider ol.simpleSlider-navigation-buttons a.simpleSlider-navigation-button.current {
+    background:#90000e;
+    color: #000;
+}
+
+.simpleSlider .simpleSlider-navigation {
+    /*background: url('../images/transparent.gif');*/
+    display:none;
+}
+
+.simpleSlider .simpleSlider-navigation a.simpleSlider-navigation-previous,
+.simpleSlider .simpleSlider-navigation a.simpleSlider-navigation-next {
+    display: block;
+    background: #000;
+    opacity: 0.7;
+    padding: 0 10px;
+    position: absolute;
+    font-size: 12px;
+    line-height: 30px;
+    top: 165px; /* for slider-height 360px and navigation-height 30px */
+}
+
+.simpleSlider a.simpleSlider-navigation-previous {
+    left: 0;
+}
+
+.simpleSlider a.simpleSlider-navigation-next {
+    right: 0;
+}

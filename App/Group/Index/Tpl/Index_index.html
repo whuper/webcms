@@ -1,0 +1,77 @@
+<include file="Public:header" />
+
+<div class="banner" >
+		<a class="prev" href="javascript:void(0)"></a>
+	<a class="next" href="javascript:void(0)"></a>
+    <div class="bd">
+				<ul style=""> 
+				
+                   <li style="background: url(__PUBLIC__/images/1474273653.jpg) center top no-repeat; float: left; width: 1920px;"><a href="javascript:;"></a></li>
+                
+                                
+                    <li style="background: url(__PUBLIC__/images/1474276489.jpg) center top no-repeat; float: left; width: 1920px;"><a href="javascript:;"></a></li>
+                
+                                
+                    <li style="background: url(__PUBLIC__/images/1474795418.jpg) center top no-repeat; float: left; width: 1920px;"><a href="javascript:;"></a></li>
+				
+		<yang:picplay >			
+	
+		<li style="background: url({$picplay.pic}) center top no-repeat; float: left; width: 1920px;"><a href="{$picplay.url}">{$picplay.name}</a></li>
+									</yang:picplay >
+
+						<!--<yang:list typeid="23" limit="0,8">			-->
+									<!--<li style="background: url({$list.litpic}) center top no-repeat; float: left; width: 1920px;"><a href="{$list.url}"></a></li>-->
+									<!--</yang:list>-->
+                
+                                    
+        </ul>
+    </div>
+    <div class="hd">
+        <ul><li class=""></li><li class="on"></li><li class=""></li></ul>
+    </div>
+
+</div>
+<!--banner结束 //-->
+
+ 
+
+	<div class="center_1000">
+
+		<div class="yt_show">
+    <h2>热门推荐</h2>
+        <a href="{:U('List/index', array( 'cid' => 5 ))}" target="_blank"><img src="__PUBLIC__/images/superior_quality_car.jpg" ><span>高档轿车改装</span></a>
+        <a href="{:U('List/index', array( 'cid' => 6 ))}"><img src="__PUBLIC__/images/business_purpose_vehicle.jpg" ><span>商务车改装</span></a>
+        <a href="{:U('List/index', array( 'cid' => 7 ))}" target="_blank"><img src="__PUBLIC__/images/Midsize_commercial_vehicle.jpg"><span>中型商务车改装</span></a>
+        <a href="{:U('List/index', array( 'cid' => 8 ))}" target="_blank"><img src="__PUBLIC__/images/Product_show.jpg" ><span>产品展示车</span></a>
+        <a href="{:U('List/index', array( 'cid' => 9 ))}" target="_blank"><img src="__PUBLIC__/images/xlfc.png"><span>厦龙房车</span></a>
+</div>
+
+
+
+<div class="product-show">
+
+	  <ul class="pro-list-index clearfix">
+		<yang:list typeid="1" infolen="80"  pagesize="10">
+            <li class="fix">
+			<a href="{$list.url}" class="fl-img">
+										<img src="{$list.litpic|default='__PUBLIC__/images/nofound.jpg'}" width="206" height="128"></a>
+                                    <div class="text">
+                                        <h2><a href="{$list.url}">{$list.title|msubstr=0,44,'utf-8',false}</a></h2>
+										<a href="{$list.url}" class="more">浏览</a>
+                                    </div>
+                                </li>
+									</yang:list>  
+		          
+                            
+                                                   </ul>
+	
+</div>
+
+
+	</div>
+	<!--cener1000 end //-->
+	
+	
+	
+
+<include file="Public:footer" />

@@ -1,0 +1,217 @@
+<!--//meta-->
+<title>{$title}-<yang:sitename /></title>
+
+<link rel="stylesheet" href="__PUBLIC__/css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+	<title><yang:sitename /> </title>
+	<meta name="keywords" content="<yang:sitekeywords/>" />
+	<meta name="description" content="<yang:sitedescription/>" />
+
+{:U('List/index', array( 'cid' => 4 ))}
+{:U('Show/index',array('cid'=>2,'id'=>4))}
+{:U('User/info', array( 'uid' => $vo['uid'] ))}
+{:U('User/info')}
+
+<!--//文件包含-->
+<include file="Public:header" />
+<!--链接-->
+{:U('List/index',array('cid'=>34))}
+<!--//某个栏目的文档列表-->
+<yang:list typeid="34" limit="0,4">
+	<a href="{$list.url}"><img src="{$list.litpic}" width="400" height="270" alt="{$list.title}" />
+		<p class="cap">{$list.title}</p>
+					</a>
+</yang:list>
+
+<!--//调用第一条新闻和描述信息-->
+	<yang:list typeid="$cid" infolen="80"  pagesize="1">
+		
+			<img class="news_thumb"  src="{$list.litpic|default="/uploads/ys.jpg"}" width="180" height="120" />
+		<div class="fr_460">
+			<h3 class="thumb_title" > <a href="{$list.url}" >{$list.title}  </a> <span class="time"> {$list.updatetime|date_trancer} </span> </h3>
+			<p class="info">
+		<!--
+		   -{$list.content|msubstr=0,15} 
+
+		   -->
+		   {$list.description}... 
+			</p>	
+
+			<a class="deail_btn" target="_blank" href="{$list.url}"> 查看详细 </a>
+		</div>
+	</yang:list>
+
+<!--//新闻列表页-->
+	<yang:list typeid="$cid" infolen="80"  pagesize="10">
+	<li><a href="{$list.url}" target="_blank" >{$list.title|msubstr=0,44,'utf-8',false}</a> <span class="time_r">{$list.updatetime|date_trancer}</span></li>
+	</yang:list>
+<!--//分页-->
+	{$page}
+<!--//当前位置-->
+<h3 >当前位置：<yang:position /> </h3>
+
+<!--//单页的内容调用-->
+
+{$cate.content}
+<!--//文章内容-->
+{$content.content}
+
+<!--//上一篇：下一篇-->
+
+<yang:prev /><br/>：<yang:next />
+
+
+<!--//当前导航栏样式-->
+.menu #nav_{$cid} a{
+	color:red;
+	}
+
+
+<!--//栏目图片-->
+__PUBLIC__/images/{$cata_pic|default="news_02.jpg"}
+<!--//导航栏菜单-->
+
+	    <volist name="nav_list" id="vo" offset="0" length='6'>
+                    <li id="nav_{$vo.id}" >
+                        <a href="{$vo.url}">{$vo.name}</a>
+
+			 <notempty name="vo.sub_nav">
+                        <ul class="sub_nav_ul">
+                            <volist name="vo.sub_nav" id="sub">
+			    <li><a href="{$sub.url}" 	<if condition = "$sub['type'] eq 2"> target="_blank" </if> >{$sub.name}</a></li>
+                            </volist>
+                        </ul>
+			</notempty>
+
+                    </li>
+		    </volist>
+
+
+
+
+<!--调用子栏目-->
+<yang:catlist typeid='17' type='son' flag='1'>
+		<li><a href="{$catlist.url}">{$catlist.name}</a></li>
+</yang:catlist>
+
+<!--//边栏导航会用到的-->
+<if condition="$flag_son">
+	<h3 class="slide_title">
+		<yang:type typeid="$cid" >{$type.name} </yang:type>
+</h3>
+	
+	<ul class="slide_cata">
+		<yang:catlist typeid='$cid' type='son' flag='1'>
+		<li><a href="{$catlist.url}">{$catlist.name}</a></li>
+		</yang:catlist>
+	</ul>
+
+
+	<else/>
+	<if condition = "$cate['pid'] gt 0">
+	<h3 class="slide_title"> 
+	
+		<yang:type typeid="$cate['pid']" > {$type.name}</yang:type> </h3>
+
+	<ul class="slide_cata">
+		<yang:catlist typeid="$cate['pid']" type='son' flag='1'>
+		<li><a href="{$catlist.url}">{$catlist.name}</a></li>
+		</yang:catlist>
+	</ul>
+
+
+	</if>
+</if>	
+<!--left_tpl-->
+	<h3 class="left_bt">联系我们</h3>
+
+		<yang:sitename /> 
+		联系地址：<yang:address />
+	  电话：<yang:phone />
+
+	<h3 class="left_bt">最新文章</h3>
+
+	<ul class="">
+	
+	<yang:list limit='10' titlelen='16'>
+	<li><a href="{$artlist.url}">{$list.title}</a></li>
+	</yang:list>
+	</ul>
+
+
+
+<!--调用很多栏目和栏目的文章-->
+<ul class="feature_list">
+	 <yang:catlist limit="30" typeid='86'>
+
+		<li class="clearfix">
+		 <div class="ft-box">
+		<a class="feature-title" href="{$catlist.url}">{$catlist.name}	</a>
+		<div class="cover-box">
+			<div class="triangle-left">
+				
+			</div>
+			<div class="title">
+			{$catlist.name}	
+			</div>
+			<div class="con">
+			<yang:list nochild="1" pagesize="20" typeid="$catlist['id']" > <a href="{$list.url}" >{$list.title} | </a>	
+			</yang:list>
+
+				
+			</div>
+		</div>
+		<!--cover-box //-->
+				 </div>
+	
+				 <div class="fr">
+				 	<yang:list limit='6' nochild="1" typeid="$catlist['id']"><a href="{$list.url}" >|{$list.title}</a>
+		<!--<span>{$list.publishtime|date='Y-m-d',###}</span>-->	
+		</yang:list>	
+				 </div>
+				 
+	
+		<a class="more" href="{$catlist.url}">更多>></a>
+
+		
+			</li>
+
+</yang:catlist>
+		      	
+	</ul>
+
+
+	<if condition = "$id">
+#nav_{$parent_cate.id} {
+	border-color:#1B4B9f;
+}
+#nav_{$parent_cate.id}>a{
+	color: #1B4B9f;
+
+	}
+	<elseif condition = "$cid">
+
+	#nav_{$cid} {
+		border-color:#1B4B9f;
+	}
+	#nav_{$cid}>a{
+		color: #1B4B9f;
+
+		}
+	#nav_{$parent_cate.id} {
+		border-color:#1B4B9f;
+	}
+	#nav_{$parent_cate.id}>a{
+		color: #1B4B9f;
+
+		}
+		<else />
+		#nav_{$cid}{
+			border-color:#1B4B9f;
+		}
+		#nav_{$cid}>a{
+			color: #1B4B9f;
+			}
+
+
+</if>

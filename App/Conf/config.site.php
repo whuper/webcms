@@ -1,0 +1,1 @@
+<?php	return array ( 'cfg_webname' => '厦龙汽车', 'cfg_weburl' => 'http://cy.zjkinglong.com', 'cfg_webtitle' => '厦龙汽车', 'cfg_keywords' => '车驿折扣车,杭州厦龙汽车销售有限公司', 'cfg_description' => '车驿折扣车', 'cfg_beian' => '', 'cfg_address' => '杭州市拱墅区石祥路589号', 'cfg_phone' => '400-880-1713', 'cfg_qq' => '', 'cfg_mobile_auto' => '0', );?>

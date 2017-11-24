@@ -1,0 +1,108 @@
+<!Doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}-<yang:sitename /></title>
+<meta name="keywords" content="{$keywords}" />
+<meta name="description" content="{$description}" />
+
+</head>
+
+<include file="Public:header" />
+
+<!--<link rel="stylesheet" href="__PUBLIC__/css/yangshen.css" type="text/css" media="screen" >-->
+
+
+<div class="container center_1000 clearfix">
+	<div class="location_list">
+		<h3 >当前位置：<yang:position /> </h3>
+		 <!--<span>{$cate.name}</span>-->
+	
+	</div>
+
+	<div class="content bg2 clearfix">
+
+
+		<ul class="catlist clearfix">
+			 <yang:list limit="30" typeid="$cate['pid']" nochild="1">
+		<li> <a href="{$list.url}">{$list.title}</a> </li>
+			 </yang:list>
+		
+		</ul>
+
+		<div class="title-box cat-title">
+		     <div class="title" style="border:none;">
+		     		{$parent_cate.name}
+		     </div>
+		     <p class="cata-info">
+		     	{$parent_cate.description}
+		     </p>
+		     </div>
+
+		  <table class="pro-table">
+		  	<tr><th>专家姓名</th> <th>专家职称</th> <th colspan="2">坐诊时间</th></tr>
+
+		  		<yang:list typeid="$cate['id']" pagesize='25'>
+			<tr>  <td> <a class="name" href="{$list.url}">{$list.title}</a></td> <td>{$list.brand}</td> <td class="tl"> {$list.units}</td> <td> <a href="{$list.specification|default='http://www.zj12580.cn/hos/info/1441'}" target="_blank" > <img src="__PUBLIC__/images/new/appoint_btn.png" /> </a> </td> </tr>
+	</yang:list>
+
+		  </table>
+		  <div class="pro-info">
+		  	<div class="title-box cat-title">
+		     <div class="title" style="border:none;">
+		     		{$content.title}
+		     </div>
+		     </div>
+		     <div class="con-box clearfix">
+			     <div class="fl">
+
+				     
+	<p>
+		     <span class="p-title">职称：</span>
+		     <span class="p-con">{$content.brand} </span>
+		     </p>
+		       <p>
+		      <span class="p-title">坐诊时间：</span>
+		       <span class="p-con">{$content.units} </span>
+		     </p>
+		       <p>
+		     <span class="p-title">简介：</span>
+		     </p>
+		     <div class="p-desc">
+		     {$content.content}
+		     </div>
+		     
+		     	
+			     	
+			     </div>
+			     <!--fl//-->
+			     <div class="fr">
+				     <img src="{$content.litpic}" />
+			     	
+			     </div>
+			     
+			     
+
+		     </div>
+		     
+		 
+		     </div>	
+
+
+				  
+		 <img class="flower lt" src="__PUBLIC__/images/ban/lt1.png" />
+		 <img class="flower rt" src="__PUBLIC__/images/ban/lt1.png" />
+		 <img class="flower lb" src="__PUBLIC__/images/ban/lt1.png" />
+		 <img class="flower rb" src="__PUBLIC__/images/ban/lt1.png" />	
+
+		  </div>
+		  <!--pro-info //-->
+	
+
+    </div>
+
+
+<include file="Public:footer" />
+</body>
+</html>
+

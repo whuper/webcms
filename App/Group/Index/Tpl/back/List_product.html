@@ -1,0 +1,41 @@
+<include file="Public:header" />
+
+<!--产品列表-->
+<div class="p_list bjf4">
+  <div class="tit_name"> <b>{$catlist.name}</b></div>
+  <div class="p_list_bar">
+    <ul>
+
+      <yang:list typeid="$cid" pagesize='12'>
+<li>
+          <div class="n_li">
+            <a href="{$list.url}">
+              <p><img src="{$list.litpic}" width="284"></p>
+                 <p class="c3">{$list.brand}</p>
+              <p class="c9">{$list.title}</p>
+            </a>
+            <p><a class="buy" href="{$list.url}">在线订购</a></p>
+          </div>
+
+        </li>
+      </yang:list>
+
+    </ul>
+  </div>
+
+  <!--翻页-->
+<!--  <div class="flip">
+    <div class="pre"><a href="javascript:void(0);">上一页</a></div>
+    <div class="number"><a href="javascript:void(0);">第/1</a></div>
+    <div class="next"><a href="http://www.higer.com/mobile/scnublock1020/1/1.html">下一页</a></div>
+  </div>
+
+-->
+<div class="pagelist">
+  {$page}
+
+</div>
+
+</div>
+
+<include file="Public:footer" />

@@ -1,0 +1,291 @@
+
+<include file="Public:header" />
+		<!--banner-->
+		<div class="swiper-container swiper-container-horizontal" id="banner">
+			<div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-640px, 0px, 0px);">
+
+				<yang:list typeid="22" limit="0,9">
+			<div class="swiper-slide" style="width: 640px;">
+					<a href="{$list.litpic}"><img src="{$list.litpic}" width="100%"></a>
+				</div>
+					</a>
+</yang:list>
+
+			
+				<div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 640px;">
+					<a href="#"><img src="__PUBLIC__/images/5837b44e4c76b.jpg" width="100%"></a>
+				</div>
+				<div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 640px;">
+					<a href="#"><img src="__PUBLIC__/images/56fb7a9ae7e36.jpg" width="100%"></a>
+				</div>
+
+		
+		
+			</div>
+			<div class="swiper-pagination">
+					
+					</div>
+		</div>
+		<script>
+			var mySwiper = new Swiper('#banner', {
+				pagination: '.swiper-pagination',
+				loop: true,
+				autoplay: 5000,
+			});
+			mySwiper.stopAutoplay();
+		</script>
+
+		<!-- 客车展示-->
+		<div class="bus_show">
+			<div class="tit_name">
+			
+				<b>客车展示</b>
+			</div>
+
+
+
+			<div class="swiper-container list swiper-container-horizontal" id="list_bus1">
+
+				<div class="swiper-wrapper" >
+					<div class="swiper-slide" >
+						<div class="icon">
+							<a href="{:U('List/index',array('cid'=>8))}">
+								<img src="__PUBLIC__/images/55a26a85d4978.png" width="90%" alt="">
+								<p>新能源客车</p>
+							</a>
+						</div>
+						<div class="pro">
+							<a href="#">
+								<p class="pic"><img src="__PUBLIC__/images/m_55934cca6af5e.jpg" width="100%" alt=""></p>
+								<h4>KLQ6601BEV</h4>
+								<p class="c9">多功能纯电动商务车</p>
+							</a>
+						</div>
+					</div>
+
+					<div class="swiper-slide" >
+						<div class="icon">
+							<a href="#">
+								<img src="__PUBLIC__/images/55a26a85d4978.png" width="90%" alt="">
+								<p>新能源客车</p>
+							</a>
+						</div>
+						<div class="pro">
+							<a href="#">
+								<p class="pic"><img src="__PUBLIC__/images/m_55964619904d9.jpg" width="100%" alt=""></p>
+								<h4>KLQ6702EV</h4>
+								<p class="c9">新能源 纯电动</p>
+							</a>
+						</div>
+					</div>
+<!--									<yang:list typeid="22" limit="0,9">
+			<div class="swiper-slide" style="width: 640px;">
+					<a href="{$list.litpic}"><img src="{$list.litpic}" width="100%"></a>
+				</div>
+					</a>
+</yang:list>-->
+<yang:list typeid="23" limit="0,9">
+					<div class="swiper-slide" >
+						<div class="icon">
+							<a href="#">
+								<img src="__PUBLIC__/images/55a26a85d4978.png" width="90%" alt="">
+								<p>新能源客车</p>
+							</a>
+						</div>
+						<div class="pro">
+							<a href="#">
+								<p class="pic"><img src="{$list.litpic}" width="100%" alt=""></p>
+								<h4>{$list.brand}</h4>
+								<p class="c9">{$list.title}</p>
+							</a>
+						</div>
+					</div>
+</yang:list>	
+
+				</div>
+				<div class="swiper-pagination"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span></div>
+			</div>
+			<script>
+				var mySwiper = new Swiper('#list_bus1', {
+					pagination: '#list_bus1 .swiper-pagination',
+					loop: true,
+				});
+				mySwiper.stopAutoplay();
+			</script>
+		
+			<div class="swiper-container list swiper-container-horizontal" id="list_bus5">
+				<div class="swiper-wrapper" >
+					<div class="swiper-slide">
+						<div class="icon">
+							<a href="#">
+								<img src="__PUBLIC__/images/55a26b6b80d16.png" width="90%" alt="">
+								<p>旅游客运</p>
+							</a>
+						</div>
+						<div class="pro">
+							<a href="#">
+								<p class="pic"><img src="__PUBLIC__/images/m_5593532251123.jpg" width="100%" alt=""></p>
+								<h4>第五代专业团体KLQ6115HT</h4>
+								<p class="c9">专业团体成就运营新标杆</p>
+							</a>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="icon">
+							<a href="#">
+								<img src="__PUBLIC__/images/55a26b6b80d16.png" width="90%" alt="">
+								<p>旅游客运</p>
+							</a>
+						</div>
+						<div class="pro">
+							<a href="#">
+								<p class="pic"><img src="__PUBLIC__/images/m_559650825d51d.jpg" width="100%" alt=""></p>
+								<h4>KLQ6129KA</h4>
+								<p class="c9">大型高品质豪华客车</p>
+							</a>
+						</div>
+					</div>
+		
+		<yang:list typeid="24" limit="0,9">
+					<div class="swiper-slide" >
+						<div class="icon">
+							<a href="#">
+								<img src="__PUBLIC__/images/55a26a85d4978.png" width="90%" alt="">
+								<p>新能源客车</p>
+							</a>
+						</div>
+						<div class="pro">
+							<a href="#">
+								<p class="pic"><img src="{$list.litpic}" width="100%" alt=""></p>
+								<h4>{$list.brand}</h4>
+								<p class="c9">{$list.title}</p>
+							</a>
+						</div>
+					</div>
+</yang:list>
+
+				</div>
+				<div class="swiper-pagination"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span
+						class="swiper-pagination-bullet"></span></div>
+			</div>
+			<script>
+				var mySwiper = new Swiper('#list_bus5', {
+					pagination: '#list_bus5 .swiper-pagination',
+					loop: true,
+				});
+				mySwiper.stopAutoplay();
+			</script>
+
+
+		
+			<div class="clear"></div>
+		</div>
+
+		<!--产品搜索-->
+		<div class="search_bar">
+			<form id="search_form" action="{:U('Search/index')}" method="post">
+				<div class="input">
+					<input type="search" name="keyword" id="keyword" placeholder="请输入产品关键词">
+				</div>
+				<div class="btn">
+					<input type="submit">
+				</div>
+			</form>
+		</div>
+
+		<!--海格先生帮您选车-->
+		<div class="choose_car">
+
+			<div class="swiper-container swiper-container-horizontal" id="rx">
+				<div class="tit_name" style="margin-bottom:10px;"><b>金龙客车帮您选车</b></div>
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" >
+						<a href="#">
+							<p>新能源</p>
+							<img src="__PUBLIC__/images/558cfb8044c74.jpg" width="100%">
+						</a>
+					</div>
+					<div class="swiper-slide" >
+						<a href="#">
+							<p>安全校车</p>
+							<img src="__PUBLIC__/images//5597a9c463b7c.png" width="100%">
+						</a>
+					</div>
+				<div class="swiper-slide" >
+						<a href="#">
+							<p>黄标车置换</p>
+							<img src="__PUBLIC__/images//558cfbd7e3698.jpg" width="100%">
+						</a>
+					</div>
+
+	<div class="swiper-slide" >
+						<a href="#">
+							<p>企事业用车</p>
+							<img src="__PUBLIC__/images//558cfbb2b41e1.jpg" width="100%">
+						</a>
+					</div>
+			<div class="swiper-slide" >
+						<a href="{:U('List/index',array('cid'=>8))}">
+							<p>大巴房车</p>
+							<img src="__PUBLIC__/images//56eba1eab60b3.jpg" width="100%">
+						</a>
+					</div>
+			<div class="swiper-slide" >
+						<a href="#">
+							<p>物流车</p>
+							<img src="__PUBLIC__/images/5707abd446774.jpg" width="100%">
+						</a>
+					</div>
+		<div class="swiper-slide" >
+						<a href="#">
+							<p>新能源</p>
+							<img src="__PUBLIC__/images/558cfb8044c74.jpg" width="100%">
+						</a>
+					</div>
+		<div class="swiper-slide" >
+						<a href="#">
+							<p>安全校车</p>
+							<img src="__PUBLIC__/images/5597a9c463b7c.png" width="100%">
+						</a>
+					</div>
+
+				</div>
+				<div class="swiper-pagination" style="bottom: 159px;">
+				
+						
+			</div>
+		</div>
+
+		<script>
+			$(function () {
+				$(window).load(function () {
+					if ($('#rx').find('.swiper-slide').length > 12) {
+						$('#rx').find('.swiper-pagination').show();
+					}
+				});
+			})
+		</script>
+
+		<!--新闻中心-->
+		<div class="news_bar">
+			<div class="tit_name"><a href="{:U('List/index',array('cid'=>3))}" class="more red">更多</a> <b>新闻中心</b> </div>
+			<ul>
+
+				<yang:list typeid="3" limit="0,5">
+						<li>
+					<div class="pic">
+						<a href="{$list.url}"><img src="{$list.litpic}"></a>
+					</div>
+					<div class="txt">
+						<a href="{$list.url}">
+							<h4>{$list.title} </h4>
+							<p class="c9">
+								&nbsp;&nbsp;&nbsp;&nbsp;{$list.description}</p>
+						</a>
+					</div>
+				</li>
+</yang:list>
+			
+			</ul>
+		</div>
+<include file="Public:footer" />

@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel='stylesheet' type="text/css" href="__PUBLIC__/css/style.css" />
+<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.form.min.js"></script>
+
+<!--kindedit-->
+	<link rel="stylesheet" href="__DATA__/kindeditor417/themes/default/default.css" />
+	<script charset="utf-8" src="__DATA__/kindeditor417/kindeditor-min.js"></script>
+	<script charset="utf-8" src="__DATA__/kindeditor417/lang/zh_CN.js"></script>
+		<script>
+			$(function() {
+				var editor = KindEditor.create('textarea[name="content"]');
+			});
+		</script>
+		<!--kindeditend-->
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/calendar/jscal2.css"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/calendar/border-radius.css"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/calendar/win2k.css"/>
+<script type="text/javascript" src="__PUBLIC__/js/calendar/calendar.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/calendar/lang/en.js"></script>
+
+</head>
+<body>
+<div class="main">
+    <div class="pos">添加招聘</div>
+	<div class="form">
+		<form method='post' id="form_do" name="form_do" action="{:U(GROUP_NAME. '/Job/add')}">
+		<div class="listtop">
+		<dl>
+			<dt>岗位名：</dt>
+			<dd>
+				<input type="text" name="title" class="inp_large" />
+			</dd>
+		</dl>
+
+			<dl>
+			<dt>招聘人数：</dt>
+			<dd>
+				<input type="text" name="number" class="inp_one" />
+			</dd>
+		</dl>
+			<dl>
+			<dt>工作区域：</dt>
+			<dd>
+				<input type="text" name="location" class="inp_one" value="杭州西湖区" />
+			</dd>
+		</dl>
+
+			<dl>
+			<dt>工作经验：</dt>
+			<dd>
+				<input type="text" name="experience" class="inp_one" value="" />
+			</dd>
+		</dl>
+
+			<dl>
+			<dt>性别：</dt>
+			<dd>
+			<label><input type="radio" name="sex" value="不限" /> 不限 </label> &nbsp;&nbsp;
+			<label> <input type="radio" name="sex" value="男" /> 男 </label>  &nbsp;&nbsp;
+			<label> 	<input type="radio" name="sex" value="女" />  女</label>  &nbsp;&nbsp;
+			
+					
+			</dd>
+		</dl>
+
+			<dl>
+			<dt>学历要求：</dt>
+			<dd>
+			<label><input type="radio" name="education" value="高中" /> 高中 </label>  &nbsp;&nbsp;
+			<label> <input type="radio" name="education" value="大专 " /> 大专 </label>  &nbsp;&nbsp;
+			<label> 	<input type="radio" name="education" value="本科" /> 本科 </label>  &nbsp;&nbsp;
+			<label> 	<input type="radio" name="education" value="硕士" /> 硕士</label>  &nbsp;&nbsp;
+			<label> 	<input type="radio" name="education" value="不限" /> 不限</label>  &nbsp;&nbsp;
+			</dd> 
+		</dl>
+	
+		<dl>
+			<dt>岗位描述：</dt>
+			<dd>
+				
+			</dd>
+		</dl>	
+		</div>
+		<div class="listbottom">
+			<textarea name="content" id="content"></textarea>
+		</div>
+		<div class="form_b">		
+			<input type="submit" class="btn_blue" id="submit" value="提 交">
+		</div>
+	   </form>
+	</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<include file="Public:header" />
+<div class="container">
+	<div class="w">
+		<div class="crumbs"><a href="">首页</a>&nbsp;&gt;&nbsp;<a href="">{$cate.name}</a></div>
+		<div class="sidebar">
+			<ul class="fix">
+				<li class="dq" style="width: 25%;"><a href="{:U('List/index', array( 'cid' => 1 ))}">关于我们</a></li>
+				<yang:catlist typeid='1' type='son' flag='1'>
+		<li style="width: 25%;"><a href="{$catlist.url}">{$catlist.name}</a></li>
+</yang:catlist>
+			</ul>
+		</div>
+		<div class="main">
+			<div class="article">
+				<div>
+					<div class="focus">
+						<div class="focusbox">         
+							<div class="focusimg">
+								<ul class="fimglist clearfix" style="margin-left: -990px;">
+									<yang:list typeid="23" limit="0,8">
+										<li><img src="{$list.litpic}" /></li>
+										</yang:list>
+							
+									<!--<li class=""><img src="__PUBLIC__/images/a2.jpg"></li>
+									<li class=""><img src="__PUBLIC__/images/a3.jpg"></li>
+									<li class=""><img src="__PUBLIC__/images/a4.jpg"></li>
+									<li class=""><img src="__PUBLIC__/images/a5.jpg"></li>
+									<li class=""><img src="__PUBLIC__/images/a6.jpg"></li>
+									<li><img src="__PUBLIC__/images/a7.jpg"></li>-->
+								</ul>
+							</div> 
+							<div class="focustool">
+								<ul class="ftoollist clearfix"><!--通过控制该ul的left值来实现列表的左右移动，增量为931px-->
+								
+
+							<yang:list typeid="23" limit="0,8">			
+									<li class="on"><img src="{$list.litpic}"><p class="imgname">{$list.title}</p><p class="imgshortcat">{$list.description}</p></li>
+									</yang:list>
+									<!--<li class="on"><img src="__PUBLIC__/images/a2.jpg"><p class="imgname">展示中心</p><p class="imgshortcat">面积达600平方</p></li>
+									<li class=""><img src="__PUBLIC__/images/a3.jpg"><p class="imgname">豪华SUV</p><p class="imgshortcat">保时捷 宝马X6等</p></li>
+									<li class=""><img src="__PUBLIC__/images/a4.jpg"><p class="imgname">跑车</p><p class="imgshortcat">科迈罗 野马等</p></li>
+									<li class=""><img src="__PUBLIC__/images/a5.jpg"><p class="imgname">前台接待</p><p class="imgshortcat">极简风格</p></li>
+									<li class=""><img src="__PUBLIC__/images/a6.jpg"><p class="imgname">商务区</p><p class="imgshortcat">商务洽谈</p></li>
+									<li class=""><img src="__PUBLIC__/images/a7.jpg"><p class="imgname">维修车间</p><p class="imgshortcat">还在施工中……</p></li>-->
+								</ul>
+							</div>
+							<a href="javascript://" class="btn_pre" target="_self" style="display:none">上一页</a>
+							<a href="javascript://" class="btn_next" target="_self" style="display:none">下一页</a>
+						</div>
+					</div>
+					<!--<p style="text-indent:2em;">
+					<span style="font-size:16px;">杭州宝粲汽车销售有限公司旗下(好车惠—平行进口车)是<strong>上海自贸区杭州一家平行进口汽车展示中心</strong>；杭州一家综合性豪华车销售中心
+						专业从事批发、零售：保时捷、路虎、宝马、奔驰等系列原厂进口车；</span> 
+					</p>
+					<p style="text-indent:2em;">
+					<br>
+					</p>
+					<p style="text-indent:2em;">
+					<span style="font-size:16px;">公司直接从德国、美国等国家采购直接销售给客户；公司全体员工将本着“服务为本，客户至上”的服务理念，不断提高和完善员工的自身素质和专业知识，以z热心的服务，z合理的价格，真正做到让您买的放心、舒心。</span> 
+					</p>
+					<p style="text-indent:2em;">
+					<br>
+					</p>
+					<p style="text-indent:2em;">
+					<span style="font-size:16px;">好车惠进口车中心致力于为用户提供最专业、最实惠的豪华车购买服务。
+						热忱欢迎各界朋友的光临惠顾！<span style="color:#E53333;"><strong>尊享热线： 400-0571-288</strong></span></span> 
+					</p>
+					<p>
+					<img src="uploads/1466565571.jpg" alt=""> 
+				</p>-->
+
+				<div class="">
+					{$cate.content}
+				</div>
+				
+			
+			</div>
+
+
+				<script type="text/javascript" src="__PUBLIC__/js/new/jquery.js"></script>
+				<script type="text/javascript">
+jQuery.noConflict();
+jQuery(document).ready(function($){
+		$(".guidelist li").hover(
+			function () {
+			$(this).attr("class", "mouseon");
+			},
+			function () {
+			$(this).attr("class", "mouseout");
+			}
+			);
+		$(".ftoollist li").mouseover(function(){
+			$(this).siblings().removeClass("on");
+			$(this).addClass("on");
+			var preNumber=$(this).prevAll().size();
+			$(".fimglist li").removeClass("onpre");
+			$(".fimglist li:nth-child("+preNumber+")").addClass("onpre");
+			var margin = 990;
+			margin = margin *preNumber; 
+			margin = margin * -1;
+			$(".fimglist").stop().animate({marginLeft: margin + "px"}, {duration: 500});
+			});
+		});
+			</script>            </div>
+		</div>
+	</div>
+</div>
+
+<include file="Public:footer" />

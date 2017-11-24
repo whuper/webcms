@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>文豪的博客</title>
+	<meta name="keywords" content="<yang:sitekeywords/>" />
+<meta name="description" content="<yang:sitedescription/>" />
+
+</head>
+	<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/css/jplayer.blue.monday.css" type="text/css" media="screen" charset="utf-8">
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/js/jquery.jplayer.min.js">	</script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/js/add-on/jplayer.playlist.min.js">	</script>
+<div class="container">
+	<!--0000000-->
+
+
+	
+<div class="jp-video jp-video-270p" id="jp_container_N">
+			<div class="jp-type-playlist">
+				<div class="jp-jplayer" id="jquery_jplayer_N" ></div>
+				<div class="jp-gui">
+					<div class="jp-video-play" style="display: none;">
+						<a tabindex="1" class="jp-video-play-icon" href="javascript:;">play</a>
+					</div>
+					<div class="jp-interface">
+						<div class="jp-progress">
+							<div class="jp-seek-bar" style="width: 100%;">
+								<div class="jp-play-bar" style="overflow: hidden; width: 0%;"></div>
+							</div>
+						</div>
+						<div class="jp-current-time">00:00</div>
+						<div class="jp-duration">04:27</div>
+						<div class="jp-controls-holder">
+							<ul class="jp-controls">
+								<li><a tabindex="1" class="jp-previous" href="javascript:;">previous</a></li>
+								<li><a tabindex="1" class="jp-play" href="javascript:;" style="display: block;">play</a></li>
+								<li><a tabindex="1" class="jp-pause" href="javascript:;" style="display: none;">pause</a></li>
+								<li><a tabindex="1" class="jp-next" href="javascript:;">next</a></li>
+								<li><a tabindex="1" class="jp-stop" href="javascript:;">stop</a></li>
+								<li><a title="mute" tabindex="1" class="jp-mute" href="javascript:;" style="display: block;">mute</a></li>
+								<li><a title="unmute" tabindex="1" class="jp-unmute" href="javascript:;" style="display: none;">unmute</a></li>
+								<li><a title="max volume" tabindex="1" class="jp-volume-max" href="javascript:;">max volume</a></li>
+							</ul>
+							<div class="jp-volume-bar">
+								<div class="jp-volume-bar-value" style="width: 16.3043%;"></div>
+							</div>
+							<ul class="jp-toggles">
+								<li><a title="full screen" tabindex="1" class="jp-full-screen" href="javascript:;">full screen</a></li>
+								<li><a title="restore screen" tabindex="1" class="jp-restore-screen" href="javascript:;" style="display: none;">restore screen</a></li>
+								<li><a title="shuffle" tabindex="1" class="jp-shuffle" href="javascript:;">shuffle</a></li>
+								<li><a title="shuffle off" tabindex="1" class="jp-shuffle-off" href="javascript:;" style="display: none;">shuffle off</a></li>
+								<li><a title="repeat" tabindex="1" class="jp-repeat" href="javascript:;">repeat</a></li>
+								<li><a title="repeat off" tabindex="1" class="jp-repeat-off" href="javascript:;" style="display: none;">repeat off</a></li>
+							</ul>
+						</div>
+						<div class="jp-details">
+							<ul>
+								<li><span class="jp-title" style="display: none;">Cro Magnon Man</span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			<div class="jp-playlist">
+				<ul style="display: block;">
+				<li class="jp-playlist-current">
+				<div>
+					<a class="jp-playlist-item-remove" href="javascript:;">×</a>
+				<a tabindex="1" class="jp-playlist-item jp-playlist-current" href="javascript:;">Cro Magnon Man <span class="jp-artist">by The Stark Palace</span></a>
+			</div>
+			</li>
+				</ul>
+				</div>
+			
+			</div>
+		</div>
+
+
+	<!--00000000-->
+</div>
+
+<include file="Public:footer" />
+
+
+</body>
+<script type="text/javascript" charset="utf-8">
+
+$(document).ready(function(){
+/*
+$('#jquery_jplayer_1').jPlayer({
+    ready: function () {
+    $(this).jPlayer("setMedia", {
+    mp3: "images/youloveher.mp3",
+    mp3: "images/moon.mp3",
+    mp3: "images/WhatGot.mp3"
+    //oga: "/media/mysound.ogg"
+    });
+    },
+swfPath: 'js',
+ supplied: 'mp3'
+
+});
+
+*/
+
+	var myPlaylist = new jPlayerPlaylist({
+		jPlayer: "#jquery_jplayer_N",
+		cssSelectorAncestor: "#jp_container_N"
+	}, [
+		{
+			title:"WhatGot",
+			artist:"The Stark Palace",
+		    	mp3: "__PUBLIC__/images/WhatGot.mp3"
+		
+    },
+    		{
+			title:"mooon",
+			artist:"The Stark Palace",
+			 mp3: "__PUBLIC__/images/moon.mp3"
+
+		
+    },
+    		{
+			title:"youloveher",
+			artist:"The Stark Palace",
+			 mp3: "__PUBLIC__/images/youloveher.mp3"
+
+		}
+	], {
+		playlistOptions: {
+			enableRemoveControls: true,
+			 autoPlay: false,
+			loopOnPrevious: false,
+			shuffleOnLoop: true,
+			enableRemoveControls: false,
+			displayTime: 'slow',
+			addTime: 'fast',
+			removeTime: 'fast',
+			shuffleTime: 'slow'
+		      
+		},
+		swfPath: "js",
+		supplied: "mp3",
+		smoothPlayBar: true,
+		keyEnabled: true,
+		audioFullScreen: true
+	});
+
+
+});
+
+
+
+
+
+
+window.onload= function(){
+	setTimeout(function(){
+$("#jquery_jplayer_1").jPlayer("play");			
+			}, 2000);
+
+}
+</script>
+</html>

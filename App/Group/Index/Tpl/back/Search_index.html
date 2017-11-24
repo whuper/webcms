@@ -1,0 +1,23 @@
+<include file="Public:header" />
+<!--单页详细-->
+<div class="public_txt bjf4">
+
+<div class="n_search_tit">
+  	 <b>搜索结果</b><span class="red more">关键字：{$keyword} </span>
+  </div>
+
+  <div class="news_bar" id="search">
+    <ul>
+
+       <yang:list  keyword="$keyword">
+           <li>
+        <a href="{$list.url}">{$list.title}</a> 
+      </li>
+</yang:list>
+
+      
+       </ul>
+       </div>
+</div>
+
+<include file="Public:footer" />

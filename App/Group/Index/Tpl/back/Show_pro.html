@@ -1,0 +1,83 @@
+<include file="Public:header" />
+<!--产品详细-->
+<div class="pro_dtail bjf4">
+  <div class="tip">
+    <!--<a class="more" href="http://www.higer.com/mobile/message/index?id=2805">在线订购</a>-->
+    <div class="name_tit">
+      <h4>{$content.brand}</h4>
+      <p class="c9">{$content.title}</p>
+    </div>
+  </div>
+  <!--tab展示-->
+  <div class="tab_name">
+    <ul>
+      <li class="on">展示</li>
+
+    </ul>
+  </div>
+  <div class="tab_content">
+    <div class="show_img" style="display: block;">
+      <div class="swiper-container swiper-container-horizontal" id="pro1">
+        <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-640px, 0px, 0px);">
+          <div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="5" style="width: 640px;"><img src="./show_pro_files/20161128105259_15953.jpg" width="100%"></div>
+          <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 640px;"><img src="./show_pro_files/20161128105253_44351.jpg" width="100%"></div>
+          <div class="swiper-slide swiper-slide-next"
+            data-swiper-slide-index="1" style="width: 640px;"><img src="./show_pro_files/20161128105255_98781.jpg" width="100%"></div>
+          <div class="swiper-slide" data-swiper-slide-index="2"
+            style="width: 640px;"><img src="./show_pro_files/20161128105256_37389.jpg" width="100%"></div>
+          <div class="swiper-slide" data-swiper-slide-index="3"
+            style="width: 640px;"><img src="./show_pro_files/20161128105257_51060.jpg" width="100%"></div>
+          <div class="swiper-slide" data-swiper-slide-index="4"
+            style="width: 640px;"><img src="./show_pro_files/20161128105258_13508.jpg" width="100%"></div>
+          <div class="swiper-slide" data-swiper-slide-index="5"
+            style="width: 640px;"><img src="./show_pro_files/20161128105259_15953.jpg" width="100%"></div>
+          <div class="swiper-slide swiper-slide-duplicate"
+            data-swiper-slide-index="0" style="width: 640px;"><img src="./show_pro_files/20161128105253_44351.jpg" width="100%"></div>
+        </div>
+        <div class="swiper-pagination"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span>
+          <span
+            class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <!--tab车型-->
+  <div class="tab_name_moto">
+    <ul>
+      <!--<li class="on">产品详情<i></i></li>-->
+      <li class="">车型信息 <i></i></li>
+      <li class="on">参数配置 <i></i></li>
+    </ul>
+  </div>
+  <div class="tab_content_moto">
+
+    <div class="moto_txt" style="display: none;">
+        {$content.description}
+    </div>
+    <div class="moto_txt" style="display: block;">
+      {$content.content}
+    </div>
+
+  </div>
+
+  <script>
+    $('.tab_content .show_img').each(function (index) {
+      var num = index + 1;
+      var mySwiper = new Swiper('#pro' + num, {
+        pagination: '#pro' + num + ' .swiper-pagination',
+        loop: true,
+        autoplay: 3000,
+      });
+      mySwiper.stopAutoplay();
+    });
+    $(window).load(function () {
+      $('.show_img').hide();
+      $('.show_img').first().show();
+    });
+  </script>
+
+
+  <include file="Public:footer" />

@@ -1,0 +1,50 @@
+
+	<div class="left200" >
+<!--
+		<if condition="$flag_son">
+	<h3 class="slide_title">
+		<yang:type typeid="$cid" >{$type.name} </yang:type>
+</h3>
+	
+	<ul class="slide_cata">
+		<yang:catlist typeid='$cid' type='son' flag='1'>
+		<li><a href="{$catlist.url}">{$catlist.name}</a></li>
+		</yang:catlist>
+	</ul>
+
+
+	<else/>
+	<if condition = "$cate['pid'] gt 0">
+	<h3 class="slide_title"> 
+	
+		<yang:type typeid="$cate['pid']" > {$type.name}</yang:type> </h3>
+
+	<ul class="slide_cata">
+		<yang:catlist typeid="$cate['pid']" type='son' flag='1'>
+		<li><a href="{$catlist.url}">{$catlist.name}</a></li>
+		</yang:catlist>
+	</ul>
+
+
+	</if>
+	</if>	
+	-->
+	
+	<h3 class="left_bt lanmu_tiao">联系我们</h3>
+	<div class="left_contactbox">
+	<p>
+	<yang:sitename /> <br />
+	联系地址：<yang:address /><br />
+	  电话：<yang:phone /></p>
+	</div>
+	<h3 class="left_bt lanmu_tiao">最新文章</h3>
+
+	<ul class="news_list">
+	
+	<yang:list limit='10' titlelen='16'>
+	<li><a href="{$artlist.url}">{$list.title}</a></li>
+	</yang:list>
+	</ul>
+
+
+</div>

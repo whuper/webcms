@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel='stylesheet' type="text/css" href="__PUBLIC__/css/style.css" />
+<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+ <script language="JavaScript">
+        <!--
+        var URL = '__URL__';
+        var APP	 = '__APP__';
+        var SELF='__SELF__';
+        var PUBLIC='__PUBLIC__';
+        //-->
+        </script>
+</head>
+<style type="text/css" media="screen">
+
+.job_table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 10px 0 20px;
+    width: 100%;
+}
+.job_table tr {
+    margin: 0 0 10px;
+}
+.job_table th, .job_table td {
+    font-size: 14px;
+    font-weight: normal;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 20px;
+    text-align: left;
+    width:200px;
+}
+.job_table th {
+    background-color: #3385ff;
+    border: 1px solid #ccc;
+    color: #fff;
+}
+
+.jobapplyTab {
+   
+    padding:40px;
+}
+.jobapplyTab h2 {
+    border-bottom: 1px solid #e6e5e5;
+    color: #0F92D6;
+    font-weight: bold;
+   
+    padding: 10px 0 10px 50px;
+}
+.jobapplyTab table {
+    margin: 0 auto;
+}
+.jobapplyTab td {
+    color: #666;
+    line-height: 28px;
+    padding:10px;
+    border:1px solid #ddd;
+}
+
+.jobapplyLine {
+    background: none repeat scroll 0 0 #e6e5e5;
+    height: 1px;
+    margin-bottom: 45px;
+    width: 100%;
+}
+
+	
+	
+</style>
+<body>
+<div class="main">
+    <div class="pos">{$details.username}的详情 
+    </div>
+
+    <div class="list jobapplyTab">    
+       <h2>基本信息</h2>
+                    <table class="job_table" cellpadding="0" width="80%" border="0">
+          <tr>
+              <td align="right">应聘职位：</td>
+	      <td colspan="3">  
+		      <span class="fie"> {$details.job_title} </span>
+	
+                </td>
+	</tr>
+	 <tr>
+              <td align="right">姓名：</td>
+	      <td><span class="fie"> {$details.username} </span> </td>
+
+	       <td align="right">性别：</td>
+	       <td> {$details.sex} </td>           
+            </tr>
+           
+	    <tr>
+		      <td align="right">文化程度：</td>
+              <td> {$details.edu} </td>
+             
+              <td align="right">婚姻：</td>
+              <td>
+	{$details.marriage}
+
+	</td>
+            </tr>
+            <tr>
+              <td align="right">民族：</td>
+	      <td>
+
+		      {$details.nation}
+	      </td>
+              <td align="right">年龄：</td>
+	      <td>
+		{$details.age}
+	      </td>
+            </tr>
+           
+            <tr>
+              <td align="right">电话：</td>
+	      <td>{$details.telephone}
+	      </td>
+              <td align="right">E-mail：</td>
+	      <td>
+{$details.email}
+	      
+	      </td>
+            </tr>
+            
+          </table>
+          <h2>专业水平</h2>
+          <table class="job_table" cellspacing="0" cellpadding="0" width="80%" border="0">
+           <tr>
+              <td align="right">毕业学校：</td>
+	      <td colspan="3">
+
+		      <span class="fie"> {$details.school} </span>
+	      
+	      </td>
+            </tr>
+            <tr>
+              <td align="right">专业：</td>
+	      <td>
+	        <span class="fie"> {$details.major} </span>
+	      </td>
+              <td align="right">毕业时间：</td>
+	      <td>
+		      
+<span class="fie"> {$details.graduation} </span>
+	      </td>
+            </tr>
+            <tr>
+              <td align="right">外语水平：</td>
+	      <td>
+<span class="fie"> {$details.en_level} </span>
+	      </td>
+              <td align="right">工作年限：</td>
+	      <td>
+<span class="fie"> {$details.experience} </span>
+	      </td>
+      </tr>
+
+      	   <tr>			   
+              <td>备注：</td>
+	      <td colspan="3" style="height:200px;">
+		  <p>
+		  {$details.content}
+		  </p>
+	      </td>
+      </tr>
+          </table>
+        
+	
+
+      	
+    </div>
+</div>
+</body>
+</html>

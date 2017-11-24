@@ -1,0 +1,42 @@
+<include file="Public:header" />
+<div class="container center_1000">
+
+	<div class="cata-list-box">
+	<ul class="cata-list clearfix">
+	 <yang:catlist limit="30" typeid='1'>
+	 <li><a href="{$catlist.url}">{$catlist.name}</a><li>
+	 </yang:catlist>
+	 </ul>
+
+		
+	</div>
+	
+               
+            <div class="main">
+                    <ul class="piclist clearfix">
+						<yang:list typeid="$cid" infolen="80"  pagesize="10">
+            <li class="fix">
+			<a href="{$list.url}" class="fl-img">
+										<img src="{$list.litpic|default='__PUBLIC__/images/nofound.jpg'}" ></a>
+                                    <div class="text">
+                                        <h2><a href="{$list.url}">{$list.title|msubstr=0,44,'utf-8',false}</a></h2>
+										<!--<span>￥{$list.price}万</span>-->
+                                        <p>{$list.description}</p>
+									
+                                    </div>
+                                </li>
+									</yang:list>  
+		          
+                            
+                                                   </ul>
+                                  
+                            <div class="pagelist">
+								{$page}
+							</div>                       
+                 
+            </div>
+		
+    </div>
+
+
+<include file="Public:footer" />

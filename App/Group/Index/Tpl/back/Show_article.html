@@ -1,0 +1,17 @@
+<include file="Public:header" />
+<!--main-->
+ <!--单页详细-->
+  <div class="public_txt">
+    <div class="new_d_tit">
+      <h4 class="c3">{$content.title}</h4>
+      <p class="c9">{$content.updatetime|date_trancer} </p>
+    </div>
+
+    {$content.content}
+
+ <p><a class="back_list" href="{:U('List/index',array('cid'=>3))}">返回文章列表</a></p>
+  </div>
+
+
+
+    <include file="Public:footer" />

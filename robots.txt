@@ -1,0 +1,7 @@
+#
+# robots.txt for CMS 
+User-agent: * 
+Disallow: /App/Group/Manage/
+Disallow: /ThinkPHP/
+Disallow: /install/
+Disallow: /Data/
