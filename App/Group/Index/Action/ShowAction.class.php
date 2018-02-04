@@ -119,8 +119,6 @@ class ShowAction extends CommonAction{
 			default:
 				break;
 		}
-		
-		$this->cata_pic = $self['cata_pic'];
 
 		//获取子栏目id
 		$son_cids = Category::getChildsId($cate, $cid);
@@ -136,7 +134,6 @@ class ShowAction extends CommonAction{
 		$this->content = $content;
 		$this->tablename = $self['tablename'];
 		$this->id = $id;
-		$this->cid = $cid;
 
 		$this->display($template_show);		
 

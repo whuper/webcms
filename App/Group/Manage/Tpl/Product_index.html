@@ -83,8 +83,7 @@
                 <if condition="($v.flag & B_JUMP) && !empty($v['jumpurl']) ">
                 <a href="{:U(C('DEFAULT_GROUP'). '/Go/link',array('url' => $v['jumpurl'], ''))}" target="_blank">查看</a>
                 <else/>
-				<!--<a href="{:U(C('DEFAULT_GROUP'). '/Show/product',array('id' => $v['id']), '').'#'.rand(1000,time())}" target="_blank">查看</a>-->
-                 <a href="{:U(C('DEFAULT_GROUP'). '/Show/index',array('cid' => $v['cid'],'id' => $v['id']), '').'#'.rand(1000,time())}" target="_blank">查看</a>
+                <a href="{:U(C('DEFAULT_GROUP'). '/Show/product',array('id' => $v['id']), '').'#'.rand(1000,time())}" target="_blank">查看</a>
                 </if>
                 <a href="{:U(GROUP_NAME. '/Product/edit',array('id' => $v['id'],'pid' => $pid), '')}">编辑</a>
                 <a href="{:U(GROUP_NAME. '/Product/del',array('id' => $v['id'], 'pid' => $pid), '')}">删除</a>

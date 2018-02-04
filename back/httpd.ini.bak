@@ -1,0 +1,9 @@
+[ISAPI_Rewrite]
+# Defend your computer from some worm attacks
+#RewriteRule .*(?:global.asa|default.ida|root.exe|..).* . [F,I,O]
+# 3600 = 1 hour
+
+CacheClockRate 3600
+RepeatLimit 32
+
+RewriteRule (.*)$ /index\.php\?s=$1 [I]

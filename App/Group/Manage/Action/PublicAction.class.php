@@ -529,8 +529,7 @@ class PublicAction extends CommonAction {
 					$list[$i]['isImg'] = 1;
 				}
 			}else {
-				//$url = U(GROUP_NAME. '/Public/browseFile', array('stype' => $stype, 'spath'=> rtrim($path,'/') . '/'. $list[$i]['filename']));
-				$url = U(GROUP_NAME. '/Public/browseFile') . '&stype=' . $stype . '&spath=' . rtrim($path,'/') . '/'. $list[$i]['filename'];
+				$url = U(GROUP_NAME. '/Public/browseFile', array('stype' => $stype, 'spath'=> rtrim($path,'/') . '/'. $list[$i]['filename']));
 			}	
 			$list[$i]['url'] = $url;			
 			$list[$i]['size'] = get_byte($list[$i]['size']);
