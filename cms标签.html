@@ -2,6 +2,7 @@
 <title>{$title}-<yang:sitename /></title>
 
 <link rel="stylesheet" href="__PUBLIC__/css/style.css" type="text/css" media="screen" charset="utf-8" />
+<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
 
 	<title><yang:sitename /> </title>
 	<meta name="keywords" content="<yang:sitekeywords/>" />
@@ -214,4 +215,12 @@ __PUBLIC__/images/{$cata_pic|default="news_02.jpg"}
 			}
 
 
+</if>
+
+
+<!--可判断是否是首页-->
+<if condition="$cid or $cate">
+<div class="cata_pic" style="background-image:url(__PUBLIC__/images/cata/{$cata_pic|default="product.jpg"});">
+
+</div>
 </if>

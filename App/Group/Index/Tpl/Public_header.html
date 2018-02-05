@@ -6,12 +6,10 @@
 <meta name="keywords" content="<yang:sitekeywords/>" />
 <meta name="description" content="<yang:sitedescription/>" />
 
-<link href="__PUBLIC__/css/layout.css" rel="stylesheet">
-<link href="__PUBLIC__/css/common.css" rel="stylesheet">
+<link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
 
 <script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
-
-<script type="text/javascript" src="__PUBLIC__/js/new/jquery.SuperSlide.2.1.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
 
 <!--//当前导航栏样式-->
 <style type="text/css" media="screen">
@@ -25,126 +23,49 @@
 </style>
 </head>
 <body>                                          
-<div class="tool-top">
-</div>
-<div class="header">
-		<div class="head-top">
-		<div class="fl">
-			<img src="__PUBLIC__/images/logo.jpg" />
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="__APP__">夏龙房车</a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav">
+
 			
-		</div>
-		<div class="frtel">
-			<h3>咨询热线： </h3>
-			<p class="tel">
-			400-880-1713
-			</p>
-		</div>
-	</div>
-		<div class="nav">
-			<ul class="nav-first clearfix">
-				<li id="nav_" ><a href="index.php">首页</a></li>
-				<volist name="nav_list" id="vo" offset="0" length='5'>
-				<li id="nav_{$vo.id}" >
-				<a href="{$vo.url}">{$vo.name}</a>
-					 <notempty name="vo.sub_nav">
-                        <ul class="nav-second">
+	    <volist name="nav_list" id="vo" offset="0" length='6'>
+                    <li id="nav_{$vo.id}"  <notempty name="vo.sub_nav">class="dropdown"</notempty> >
+                        <a href="{$vo.url}">{$vo.name}</a>
+
+			 <notempty name="vo.sub_nav">
+                        <ul class="dropdown-menu">
                             <volist name="vo.sub_nav" id="sub">
 			    <li><a href="{$sub.url}" 	<if condition = "$sub['type'] eq 2"> target="_blank" </if> >{$sub.name}</a></li>
                             </volist>
                         </ul>
 			</notempty>
-				</li>
-				
-				</volist>
-			</ul>
-<script type="text/javascript">
-jQuery(document).ready(function(){
 
-$("ul.nav-first>li").hover(function(){
-    $(this).find('.nav-second').show();
-},function(){
-   $(this).find('.nav-second').hide();
-});
+                    </li>
+		    </volist>
+			<!--
+            <li class="active"><a href="#">车型总览</a></li>
+            <li><a href="#">SVN</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Java
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">jmeter</a></li>
+                    <li><a href="#">EJB</a></li>
+                    <li><a href="#">Jasper Report</a></li>
+					<li class="divider"></li>
+                   
+                </ul>
+            </li>
+			-->
+        </ul>
+    </div>
+    </div>
+</nav>
 
-
-	var qcloud={};
-	$('[_t_nav]').hover(function(){
-		var _nav = $(this).attr('_t_nav');
-		clearTimeout( qcloud[ _nav + '_timer' ] );
-		qcloud[ _nav + '_timer' ] = setTimeout(function(){
-		$('[_t_nav]').each(function(){
-		$(this)[ _nav == $(this).attr('_t_nav') ? 'addClass':'removeClass' ]('nav-up-selected');
-		});
-		$('#'+_nav).stop(true,true).slideDown(200);
-		}, 150);
-	},function(){
-		var _nav = $(this).attr('_t_nav');
-		clearTimeout( qcloud[ _nav + '_timer' ] );
-		qcloud[ _nav + '_timer' ] = setTimeout(function(){
-		$('[_t_nav]').removeClass('nav-up-selected');
-		$('#'+_nav).stop(true,true).slideUp(200);
-		}, 150);
-	});
-});
-</script>
-			
-		</div>
-	</div>
-
-	<!--
-<if condition="$cid or $cate">
-<link href="__PUBLIC__/css/inside.css" rel="stylesheet">
-<div class="banner" style="height:299px;">
-	<div class="bd" style="height:299px;">
-		<div class="tempWrap" style="overflow:hidden; position:relative; width:1920px">
-			<ul style="width: 1920px; left: 0px; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
-				<li style="background:url(__PUBLIC__/images/20160220042834.jpg) center top no-repeat; height: 299px; float: left; width: 1920px;"><a href="#"></a></li>
-
-		</ul></div>
-	</div>
-	<div class="hd">
-		<ul><li class="on"></li></ul>
-	</div>
-</div>
-</if>
--->
-	<!--可判断是否是首页-->
-<if condition="$cid or $cate">
-<div class="cata_pic" style="background-image:url(__PUBLIC__/images/cata/{$cata_pic|default="product.jpg"});">
-
-</div>
-</if>
-<script type="text/javascript" charset="utf-8">
-
-	$(function() {
-		$(window).scroll(function() {
-			if ($(window).scrollTop() > 100) {
-					$('.backtop').fadeIn(500);
-				} 
-			else {
-				$('.backtop').fadeOut(500);
-				}
-				});
-				$('.backtop').click(function() {
-				$('html, body').animate({
-				scrollTop: 0
-				},1000, "easeOutExpo");
-		});
-		$(':text').each(function(){
-		    var val=$(this).val();
-		    $(this).focus(function() {
-		        if( $(this).val() == val) {
-		            this.value = ''
-		        }
-		    });
-		    $(this).blur(function() {
-		    if( $(this).val() == '') {
-		        this.value = val;
-		        }
-		    });
-		});
-		$('.sidebar li').outerWidth(100/$('.sidebar li').length+'%')
-		jQuery(".banner").slide({titCell:".hd ul",mainCell:".bd ul",effect:"left",autoPage:'<li></li>',autoPlay:true});		
-	}); 
-	
-</script>

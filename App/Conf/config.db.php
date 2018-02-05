@@ -4,6 +4,6 @@
   'DB_PORT' => '3306',
   'DB_USER' => 'root',
   'DB_PWD' => '888990',
-  'DB_NAME' => 'xlfc',
+  'DB_NAME' => 'newbus',
   'DB_PREFIX' => 'tp_',
 );?>
