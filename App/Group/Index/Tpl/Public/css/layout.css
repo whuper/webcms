@@ -1,1 +1,31 @@
+.carousel-inner>.item>img {
+margin:0 auto;
 
+}
+.carousel-control{  
+    font-size: 100px;  
+      
+} 
+.footer {
+background-color:#f1f1f1;
+}
+.mar-top {
+margin-top:30px;
+}
+.padding30 {
+padding:30px;
+}
+.cata-bg {
+background-position:top center;
+background-repeat:no-repeat;
+background-size:100%;
+height:300px;
+}
+nav.navbar {
+margin-bottom:0;
+}
+ul.list-group li span.time {
+position:absolute;
+top:30%;
+right:40px;
+}

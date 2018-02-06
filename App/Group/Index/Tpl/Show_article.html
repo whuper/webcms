@@ -1,15 +1,16 @@
 <include file="Public:header" />
 <div class="container center_1000">
-			<div class="news-tit">
-				<!--<p>
-			 <a href="{:U('List/index', array( 'cid' => $cate['id'] ))}" class="b3" title="返回列表">返回列表</a></li>
-				</p>-->
-				<h3>{$content.title}	</h3>
-                            <p class="time">{$content.updatetime|date_trancer}</p>
-                        </div>
-						<div class="article">
-						 {$content.content}		
-						</div>
+	<div class="page-header">
+  <h3>{$content.title}<small> {$content.updatetime|date_trancer}</small></h3>
+</div>
+		
+		<!--<p>
+	 <a href="{:U('List/index', array( 'cid' => $cate['id'] ))}" >返回列表</a></li>
+		</p>-->
+		
+		<div class="article">
+		 {$content.content}		
+		</div>
 	
 </div>
 

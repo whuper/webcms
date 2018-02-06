@@ -7,6 +7,7 @@
 <meta name="description" content="<yang:sitedescription/>" />
 
 <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/css/layout.css" rel="stylesheet">
 
 <script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
@@ -24,48 +25,33 @@
 </head>
 <body>                                          
 
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default <if condition="$cid or $cate"> cata </if>" role="navigation">
     <div class="container">
     <div class="navbar-header">
         <a class="navbar-brand" href="__APP__">夏龙房车</a>
     </div>
     <div>
         <ul class="nav navbar-nav">
-
-			
-	    <volist name="nav_list" id="vo" offset="0" length='6'>
-                    <li id="nav_{$vo.id}"  <notempty name="vo.sub_nav">class="dropdown"</notempty> >
-                        <a href="{$vo.url}">{$vo.name}</a>
-
-			 <notempty name="vo.sub_nav">
-                        <ul class="dropdown-menu">
-                            <volist name="vo.sub_nav" id="sub">
-			    <li><a href="{$sub.url}" 	<if condition = "$sub['type'] eq 2"> target="_blank" </if> >{$sub.name}</a></li>
-                            </volist>
-                        </ul>
-			</notempty>
-
-                    </li>
-		    </volist>
-			<!--
-            <li class="active"><a href="#">车型总览</a></li>
-            <li><a href="#">SVN</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    Java
-                    <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">jmeter</a></li>
-                    <li><a href="#">EJB</a></li>
-                    <li><a href="#">Jasper Report</a></li>
-					<li class="divider"></li>
-                   
-                </ul>
-            </li>
-			-->
+			<volist name="nav_list" id="vo" offset="0" length='6'>
+						<li id="nav_{$vo.id}"  <notempty name="vo.sub_nav">class="dropdown"</notempty> >
+							<a href="{$vo.url}">{$vo.name}</a>
+				 <notempty name="vo.sub_nav">
+							<ul class="dropdown-menu">
+								<volist name="vo.sub_nav" id="sub">
+					<li><a href="{$sub.url}" 	<if condition = "$sub['type'] eq 2"> target="_blank" </if> >{$sub.name}</a></li>
+								</volist>
+							</ul>
+				</notempty>
+						</li>
+				</volist>
         </ul>
     </div>
     </div>
 </nav>
+
+<if condition="$cid or $cate">
+<div class="container-fluid cata-bg" style="background-image:url(__PUBLIC__/images/{$cata_pic|default="vehicle.jpg"});">
+	
+</div>
+</if>
 

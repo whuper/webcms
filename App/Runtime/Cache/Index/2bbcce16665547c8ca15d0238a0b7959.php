@@ -7,6 +7,7 @@
 <meta name="description" content="车驿折扣车" />
 
 <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/css/layout.css" rel="stylesheet">
 
 <script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
@@ -24,44 +25,27 @@
 </head>
 <body>                                          
 
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default <?php if($cid or $cate): ?>cata<?php endif; ?>" role="navigation">
     <div class="container">
     <div class="navbar-header">
         <a class="navbar-brand" href="__APP__">夏龙房车</a>
     </div>
     <div>
         <ul class="nav navbar-nav">
-
-			
-	    <?php if(is_array($nav_list)): $i = 0; $__LIST__ = array_slice($nav_list,0,6,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li id="nav_<?php echo ($vo["id"]); ?>"  <?php if(!empty($vo["sub_nav"])): ?>class="dropdown"<?php endif; ?> >
-                        <a href="<?php echo ($vo["url"]); ?>"><?php echo ($vo["name"]); ?></a>
-
-			 <?php if(!empty($vo["sub_nav"])): ?><ul class="dropdown-menu">
-                            <?php if(is_array($vo["sub_nav"])): $i = 0; $__LIST__ = $vo["sub_nav"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): $mod = ($i % 2 );++$i;?><li><a href="<?php echo ($sub["url"]); ?>" 	<?php if($sub['type'] == 2): ?>target="_blank"<?php endif; ?> ><?php echo ($sub["name"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-                        </ul><?php endif; ?>
-
-                    </li><?php endforeach; endif; else: echo "" ;endif; ?>
-			<!--
-            <li class="active"><a href="#">车型总览</a></li>
-            <li><a href="#">SVN</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    Java
-                    <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">jmeter</a></li>
-                    <li><a href="#">EJB</a></li>
-                    <li><a href="#">Jasper Report</a></li>
-					<li class="divider"></li>
-                   
-                </ul>
-            </li>
-			-->
+			<?php if(is_array($nav_list)): $i = 0; $__LIST__ = array_slice($nav_list,0,6,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li id="nav_<?php echo ($vo["id"]); ?>"  <?php if(!empty($vo["sub_nav"])): ?>class="dropdown"<?php endif; ?> >
+							<a href="<?php echo ($vo["url"]); ?>"><?php echo ($vo["name"]); ?></a>
+				 <?php if(!empty($vo["sub_nav"])): ?><ul class="dropdown-menu">
+								<?php if(is_array($vo["sub_nav"])): $i = 0; $__LIST__ = $vo["sub_nav"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): $mod = ($i % 2 );++$i;?><li><a href="<?php echo ($sub["url"]); ?>" 	<?php if($sub['type'] == 2): ?>target="_blank"<?php endif; ?> ><?php echo ($sub["name"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+							</ul><?php endif; ?>
+						</li><?php endforeach; endif; else: echo "" ;endif; ?>
         </ul>
     </div>
     </div>
 </nav>
+
+<?php if($cid or $cate): ?><div class="container-fluid cata-bg" style="background-image:url(__PUBLIC__/images/<?php echo (($cata_pic)?($cata_pic):"vehicle.jpg"); ?>);">
+	
+</div><?php endif; ?>
 
 
 
@@ -76,36 +60,51 @@
 
     <!-- 轮播（Carousel）项目 -->
     <div class="carousel-inner">
-        <div class="item active">
+        <div class="item text-center active">
             <img src="__PUBLIC__/images/slide1.png" alt="Second slide">
         </div>
-        <div class="item">
+        <div class="item text-center">
             <img src="__PUBLIC__/images/slide2.png" alt="Second slide">
         </div>
-        <div class="item">
+        <div class="item text-center">
             <img src="__PUBLIC__/images/slide3.png" alt="Second slide">
         </div>
     </div>
     <!-- 轮播（Carousel）导航 -->
     <a class="carousel-control left" href="#myCarousel" 
-        data-slide="prev">&lsaquo;
+        data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     </a>
     <a class="carousel-control right" href="#myCarousel" 
-        data-slide="next">&rsaquo;
+        data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     </a>
 </div>
 <script type="text/javascript" charset="utf-8">
 $('.carousel').carousel({
-		interval:2000,
+		interval:5000,
 		pause:'hover',
 		wrap:true
 		});
 </script>
 
 
-<div class="container">
-<div class="row">
-  <div class="col-sm-4 col-md-3">
+<div class="container mar-top">
+	<div class="row">
+	 <div class="col-sm-2 col-md-2">
+		 <div class="text-center">
+		 	<img src="__PUBLIC__/images/p-icon3.png" />
+		 </div>
+		 <div class="text-center">
+		 	品牌名称
+		 </div>
+		 
+	</div>
+		
+	</div>
+	<!--row //-->
+<div class="row mar-top">
+  <div class="col-sm-3 col-md-3">
 
     <div class="thumbnail">
       <img src="__PUBLIC__/images/excellegt.png" alt="...">
@@ -117,7 +116,31 @@ $('.carousel').carousel({
 
   </div>
 
-  <div class="col-sm-4 col-md-3">
+  <div class="col-sm-3 col-md-3">
+
+    <div class="thumbnail">
+      <img src="__PUBLIC__/images/excellegt.png" alt="...">
+      <div class="caption">
+        <!--<h3>Thumbnail label</h3>-->
+        <p>Thumbnail label.</p>
+      </div>
+    </div>
+
+  </div>
+
+   <div class="col-sm-3 col-md-3">
+
+    <div class="thumbnail">
+      <img src="__PUBLIC__/images/excellegt.png" alt="...">
+      <div class="caption">
+        <!--<h3>Thumbnail label</h3>-->
+        <p>Thumbnail label</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-sm-3 col-md-3">
 
     <div class="thumbnail">
       <img src="__PUBLIC__/images/excellegt.png" alt="...">
@@ -131,23 +154,133 @@ $('.carousel').carousel({
 
 
 </div>
+<!--row //-->
+
+<h3>推荐车型 </h3>
+<div class="row">
+  <div class="col-sm-3 col-md-3">
+
+    <div class="thumbnail">
+      <img src="__PUBLIC__/images/excellegt.png" alt="...">
+      <div class="caption">
+        <!--<h3>Thumbnail label</h3>-->
+        <p>Thumbnail label</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-sm-3 col-md-3">
+
+    <div class="thumbnail">
+      <img src="__PUBLIC__/images/excellegt.png" alt="...">
+      <div class="caption">
+        <!--<h3>Thumbnail label</h3>-->
+        <p>Thumbnail label.</p>
+      </div>
+    </div>
+
+  </div>
+
+   <div class="col-sm-3 col-md-3">
+
+    <div class="thumbnail">
+      <img src="__PUBLIC__/images/excellegt.png" alt="...">
+      <div class="caption">
+        <!--<h3>Thumbnail label</h3>-->
+        <p>Thumbnail label</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-sm-3 col-md-3">
+
+    <div class="thumbnail">
+      <img src="__PUBLIC__/images/excellegt.png" alt="...">
+      <div class="caption">
+        <!--<h3>Thumbnail label</h3>-->
+        <p>Thumbnail label.</p>
+      </div>
+    </div>
+
+  </div>
+
+    <div class="col-sm-3 col-md-3">
+
+    <div class="thumbnail">
+      <img src="__PUBLIC__/images/excellegt.png" alt="...">
+      <div class="caption">
+        <!--<h3>Thumbnail label</h3>-->
+        <p>Thumbnail label.</p>
+      </div>
+    </div>
+
+  </div>
+
+
+    <div class="col-sm-3 col-md-3">
+
+    <div class="thumbnail">
+      <img src="__PUBLIC__/images/excellegt.png" alt="...">
+      <div class="caption">
+        <!--<h3>Thumbnail label</h3>-->
+        <p>Thumbnail label.</p>
+      </div>
+    </div>
+
+  </div>
+
+    <div class="col-sm-3 col-md-3">
+
+    <div class="thumbnail">
+      <img src="__PUBLIC__/images/excellegt.png" alt="...">
+      <div class="caption">
+        <!--<h3>Thumbnail label</h3>-->
+        <p>Thumbnail label.</p>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+<!--row //-->
 
 </div>
 	
 
-<div class="footer">
-    
-        <div class="ftlink clearfix ">
+<div class="container-fluid footer text-center padding30">
+	
+
+	<div class="ftlink clearfix ">
 				<?php if(is_array($nav_list)): $i = 0; $__LIST__ = array_slice($nav_list,0,5,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><a href="<?php echo ($vo["url"]); ?>"><?php echo ($vo["name"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
 				
       <!--厦龙汽车-->
         
     </div>
+
+	<div class="row">
+
+	<div class="col-sm-2 col-md-2">
+		 <div class="text-center">
+		 	<img src="__PUBLIC__/images/p-icon3.png" />
+		 </div>
+	</div>
+
+
+		
+	</div>
+	
+
     <div class="copyright">
        <p class="foot-icp">
            浙ICP备09007265号 版权所有© 厦龙汽车 杭州市拱墅区石祥路589号
-</p>
+	</p>
     </div>
+
 </div>
 
-</body></html>
+
+</body>
+</html>
