@@ -28,7 +28,11 @@
 <nav class="navbar navbar-default <?php if($cid or $cate): ?>cata<?php endif; ?>" role="navigation">
     <div class="container">
     <div class="navbar-header">
-        <a class="navbar-brand" href="__APP__">夏龙房车</a>
+			
+        <a class="navbar-brand" href="__APP__">
+		<img class="logo" src="__PUBLIC__/images/logo.jpg" />
+		</a>
+
     </div>
     <div>
         <ul class="nav navbar-nav">

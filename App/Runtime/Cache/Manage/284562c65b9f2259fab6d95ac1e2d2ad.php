@@ -32,7 +32,7 @@ function showPreview(sfile){
 </head>
 <body>
 <div id="PicturePreviewDiv" class="bf_picture_preview">
-<a href="javascript:;" onClick="document.getElementById('PicturePreviewDiv').style.display='none';"><img src='__PUBLIC__/images/nopic.png' id='PictureSrc' border='0' alt='单击关闭预览' title='单击关闭预览'></a>
+<a href="javascript:;" onClick="document.getElementById('PicturePreviewDiv').style.display='none';"><img src='__PUBLIC__/images/nopic.png' id='PictureSrc' border='0' alt='单击关闭预览'></a>
 </div>
 <div class="main">
     <div class="pos"><?php echo ($type); ?>
@@ -47,7 +47,6 @@ function showPreview(sfile){
             <tr>
                 <th class="aleft">文件名称</th>
                 <!--th class="aleft">类型</th-->
-                <th class="aleft">类型</th>
                 <th class="aleft">大小</th>
                 <th class="aleft">修改时间</th>
                 <th>可读</th>

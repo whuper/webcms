@@ -28,7 +28,11 @@
 <nav class="navbar navbar-default <?php if($cid or $cate): ?>cata<?php endif; ?>" role="navigation">
     <div class="container">
     <div class="navbar-header">
-        <a class="navbar-brand" href="__APP__">夏龙房车</a>
+			
+        <a class="navbar-brand" href="__APP__">
+		<img class="logo" src="__PUBLIC__/images/logo.jpg" />
+		</a>
+
     </div>
     <div>
         <ul class="nav navbar-nav">
@@ -53,22 +57,22 @@
 <div id="myCarousel" class="carousel slide">
 			    <!-- 轮播（Carousel）指标 -->
     <ol class="carousel-indicators">
+		<!--
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
+		-->
+		
     </ol> 
 
     <!-- 轮播（Carousel）项目 -->
     <div class="carousel-inner">
-        <div class="item text-center active">
-            <img src="__PUBLIC__/images/slide1.png" alt="Second slide">
-        </div>
-        <div class="item text-center">
-            <img src="__PUBLIC__/images/slide2.png" alt="Second slide">
-        </div>
-        <div class="item text-center">
-            <img src="__PUBLIC__/images/slide3.png" alt="Second slide">
-        </div>
+      
+	<?php
+ if (0 > 0) { import('ORG.Util.Page'); $count = M('picplay')->count(); $thisPage = new Page($count, 0); $thisPage->rollPage = 3; $thisPage->setConfig('theme',' %upPage% %downPage% %linkPage%'); $limit = $thisPage->firstRow. ',' .$thisPage->listRows; $page = $thisPage->show(); }else { $limit = "10"; } $_picplaylist = M('picplay')->order("sort DESC")->limit($limit)->select(); if (empty($_picplaylist)) { $_picplaylist = array(); } foreach($_picplaylist as $autoindex => $picplay): $picplay['url'] = strlen($picplay['url']) > 7 ? $picplay['url'] : 'javascript:void(0)'; ?><div class="item text-center <?php if($picplay["id"] == 4): ?>active<?php endif; ?>">
+		<!--<img src="<?php echo ($picplay["url"]); ?>" data-index="<?php echo ($key); ?>">-->
+        </div><?php endforeach;?>
+
     </div>
     <!-- 轮播（Carousel）导航 -->
     <a class="carousel-control left" href="#myCarousel" 
@@ -90,19 +94,25 @@ $('.carousel').carousel({
 
 
 <div class="container mar-top">
-	<div class="row">
-	 <div class="col-sm-2 col-md-2">
-		 <div class="text-center">
-		 	<img src="__PUBLIC__/images/p-icon3.png" />
-		 </div>
-		 <div class="text-center">
-		 	品牌名称
-		 </div>
-		 
-	</div>
+
+
+			
+	<div class="row brand-ico">
+
+	<table class="table table-condensed">
+		<tr>
+			<?php $__FOR_START_29152__=1;$__FOR_END_29152__=10;for($i=$__FOR_START_29152__;$i < $__FOR_END_29152__;$i+=1){ ?><td><img class="brnad-ico" src="__PUBLIC__/images/<?php echo ($i); ?>.jpg" /></td><?php } ?>  
+		</tr>
+	</table>
+	
 		
 	</div>
 	<!--row //-->
+
+
+		
+
+
 <div class="row mar-top">
   <div class="col-sm-3 col-md-3">
 
@@ -253,19 +263,26 @@ $('.carousel').carousel({
 <div class="container-fluid footer text-center padding30">
 	
 
+
+	<div class="row">
+
+	<div class="col-sm-8 col-md-8">
+		 
 	<div class="ftlink clearfix ">
 				<?php if(is_array($nav_list)): $i = 0; $__LIST__ = array_slice($nav_list,0,5,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><a href="<?php echo ($vo["url"]); ?>"><?php echo ($vo["name"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
 				
       <!--厦龙汽车-->
         
     </div>
+	</div>
 
-	<div class="row">
-
-	<div class="col-sm-2 col-md-2">
-		 <div class="text-center">
-		 	<img src="__PUBLIC__/images/p-icon3.png" />
+	<div class="col-sm-3 col-md-3">
+		 <div class="text-center" >
+		 	<img class="code" src="__PUBLIC__/images/code.jpg" />
 		 </div>
+		<p class="text-center">
+		 扫描二维码,关注夏龙房车公众号
+		</p>
 	</div>
 
 

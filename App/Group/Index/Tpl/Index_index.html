@@ -4,22 +4,23 @@
 <div id="myCarousel" class="carousel slide">
 			    <!-- 轮播（Carousel）指标 -->
     <ol class="carousel-indicators">
+		<!--
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
+		-->
+		
     </ol> 
 
     <!-- 轮播（Carousel）项目 -->
     <div class="carousel-inner">
-        <div class="item text-center active">
-            <img src="__PUBLIC__/images/slide1.png" alt="Second slide">
+      
+	<yang:picplay >			
+	<div class="item text-center <if condition="$picplay.id eq 4">active </if>">
+		<!--<img src="{$picplay.url}" data-index="{$key}">-->
         </div>
-        <div class="item text-center">
-            <img src="__PUBLIC__/images/slide2.png" alt="Second slide">
-        </div>
-        <div class="item text-center">
-            <img src="__PUBLIC__/images/slide3.png" alt="Second slide">
-        </div>
+</yang:picplay >
+
     </div>
     <!-- 轮播（Carousel）导航 -->
     <a class="carousel-control left" href="#myCarousel" 
@@ -41,19 +42,27 @@ $('.carousel').carousel({
 
 
 <div class="container mar-top">
-	<div class="row">
-	 <div class="col-sm-2 col-md-2">
-		 <div class="text-center">
-		 	<img src="__PUBLIC__/images/p-icon3.png" />
-		 </div>
-		 <div class="text-center">
-		 	品牌名称
-		 </div>
-		 
-	</div>
+
+
+			
+	<div class="row brand-ico">
+
+	<table class="table table-condensed">
+		<tr>
+			<for start="1" end="10"> 
+			<td><img class="brnad-ico" src="__PUBLIC__/images/{$i}.jpg" /></td>
+			</for>  
+		</tr>
+	</table>
+	
 		
 	</div>
 	<!--row //-->
+
+
+		
+
+
 <div class="row mar-top">
   <div class="col-sm-3 col-md-3">
 
