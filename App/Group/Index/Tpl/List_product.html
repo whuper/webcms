@@ -4,6 +4,7 @@
 	<div class="row cata-list-box">
 
 	   <ul class="nav navbar-nav">
+		   <!--
 			<volist name="nav_list" id="vo" offset="0" length='6'>
 						<li id="nav_{$vo.id}"  <notempty name="vo.sub_nav">class="dropdown"</notempty> >
 							<a href="{$vo.url}">{$vo.name}</a>
@@ -16,6 +17,19 @@
 				</notempty>
 						</li>
 				</volist>
+				-->
+
+			
+				<yang:navlist  typeid="1">
+				<li> <a href="javascript:void(0)"> {$navlist.name}</a> </li>
+
+						<yang:list nochild="1" typeid="$navlist['id']" > <a href="{$list.url}" >{$list.title} | </a>	
+			</yang:list>
+				
+				</yang:navlist>
+
+			
+				
 				</ul>
 
 	</div>

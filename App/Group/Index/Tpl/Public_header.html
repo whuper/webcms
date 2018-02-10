@@ -43,12 +43,19 @@
 							<ul class="dropdown-menu">
 								<volist name="vo.sub_nav" id="sub">
 					<li><a href="{$sub.url}" 	<if condition = "$sub['type'] eq 2"> target="_blank" </if> >{$sub.name}</a></li>
+					<li role="separator" class="divider"></li>
 								</volist>
 							</ul>
 				</notempty>
 						</li>
 				</volist>
         </ul>
+		 <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="请输入内容">
+        </div>
+        <button type="submit" class="btn btn-default">搜索</button>
+      </form>
     </div>
     </div>
 </nav>

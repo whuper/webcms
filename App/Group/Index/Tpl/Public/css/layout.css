@@ -45,3 +45,6 @@ img.code {
 width:180px;
 height:auto;
 }
+ul li.dropdown:hover ul.dropdown-menu {
+display:block;
+}

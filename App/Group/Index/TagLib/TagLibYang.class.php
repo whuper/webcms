@@ -399,21 +399,24 @@ str;
 	public function _navlist($attr, $content) {
 		//$attr = $this->parseXmlAttr($attr, 'navlist');
 		$attr = !empty($attr)? $this->parseXmlAttr($attr, 'navlist') : null;
+		
 		$typeid = $attr['typeid'] == '' ? I('get.cid', 0, 'intval') : intval($attr['typeid']);//不能用empty,0,'','0',会认为true
+		print_r($attr);
 		$str = <<<str
 <?php
 	\$_navlist = getCategory(1);
 	import('Class.Category', APP_PATH);	
+	
+	\$typeid = '$typeid';
 	if($typeid == 0) {
 		\$_navlist  = Category::unlimitedForLayer(\$_navlist);
 	}else {
+		echo 'typeid'.\$typeid;
 		\$_navlist  = Category::unlimitedForLayer(\$_navlist, 'child', $typeid);
 	}
 
 	foreach(\$_navlist as \$autoindex => \$navlist):
 		\$navlist['url'] = getUrl(\$navlist);	
-	print_r(\$navlist);
-	echo '<br />' ;
 ?>
 str;
 
