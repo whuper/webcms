@@ -45,7 +45,7 @@ $('.carousel').carousel({
 
 
 			
-	<div class="row brand-ico">
+	<div class="row brand-ico hidden-xs">
 
 	<table class="table table-condensed">
 		<tr>
@@ -72,6 +72,9 @@ $('.carousel').carousel({
         <!--<h3>Thumbnail label</h3>-->
         <p>Thumbnail label</p>
       </div>
+	  <p class="view-box text-right">
+	  <a href="#" class="btn btn-default" role="button">查看详情</a>
+	  </p>
     </div>
 
   </div>
@@ -84,6 +87,9 @@ $('.carousel').carousel({
         <!--<h3>Thumbnail label</h3>-->
         <p>Thumbnail label.</p>
       </div>
+	   <p class="view-box text-right">
+	  <a href="#" class="btn btn-default" role="button">查看详情</a>
+	  </p>
     </div>
 
   </div>
@@ -114,6 +120,59 @@ $('.carousel').carousel({
 
 
 </div>
+<!--row //-->
+
+<div class="row">
+
+	 <div class="col-sm-4 col-md-4">
+
+		 <div class="panel panel-default">
+		 <div class="panel-heading">
+    <h3 class="panel-title">新闻动态</h3>
+  </div>
+  <div class="panel-body">
+   		 <ul class="list">
+		 <yang:list typeid="2" infolen="80"  pagesize="10">
+		 <li class="list"> <a href="{$list.url}"> {$list.title} </a> <span class="time hidden-xs"> {$list.updatetime|date_trancer}</span></li>
+		</yang:list>
+
+</ul>
+  </div>
+ 
+</div>
+		 </div>
+		 <!--col-md-4-->
+
+
+		 <div class="col-sm-4 col-md-4">
+			 	 <div class="panel panel-default">
+		 <div class="panel-heading">
+    <h3 class="panel-title">优惠活动</h3>
+  </div>
+  <div class="panel-body">
+
+  </div>
+ 
+</div>
+		 </div>
+		  <!--col-md-4-->
+
+		 <div class="col-sm-4 col-md-4">
+
+			 	 	 <div class="panel panel-default">
+		 <div class="panel-heading">
+    <h3 class="panel-title">售前咨询</h3>
+  </div>
+  <div class="panel-body">
+
+  </div>
+ 
+</div>
+		 </div>
+		  <!--col-md-4-->
+	
+</div>
+
 <!--row //-->
 
 <h3>推荐车型 </h3>

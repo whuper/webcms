@@ -113,6 +113,7 @@ class TagLibYang extends TagLib {
 		$attr = $this->parseXmlAttr($attr, 'list');
 		$flag = empty($attr['flag'])? '': $attr['flag'];
 		$typeid = !isset($attr['typeid']) || $attr['typeid'] == '' ? I('get.cid', 0, 'intval') : trim($attr['typeid']);//只接收一个栏目ID
+		//echo '###'.$typeid;
 	
 		$titlelen = empty($attr['titlelen'])? 0 : intval($attr['titlelen']);
 		$infolen = empty($attr['infolen'])? 0 : intval($attr['infolen']);		
@@ -149,6 +150,7 @@ class TagLibYang extends TagLib {
 	}
 	if (\$keyword != '') {
 		\$where[\$_tablename.'.title'] = array('like','%'.\$keyword.'%');
+		\$isSearch = true;
 	}
 
 
@@ -188,7 +190,12 @@ class TagLibYang extends TagLib {
 
 		\$_list = D(ucfirst(\$_tablename ).'View')->where(\$where)->order("$orderby")->limit(\$limit)->select();
 		if (empty(\$_list)) {
-			\$_list = array();
+			if(\$isSearch){
+				\$_list = array("nodata"=>true);
+			} else {
+				\$_list = array();
+			}
+			
 		}
 	}else {
 		\$_list = array();
@@ -359,11 +366,9 @@ str;
 	\$typeid = intval($typeid);
 	\$type = '$type';
 	\$__catlist = getCategory(0);
-	//dump(\$__catlist );
 
 	import('Class.Category', APP_PATH);	
 	if ($flag == 0) {
-		//where array('status' => 1, 'type' => 0 , 'modelid' => array('neq',2));//2是单页模型
 		\$__catlist = Category::clearPageAndLink(\$__catlist);
 	}
 	
@@ -386,6 +391,12 @@ str;
 	foreach(\$_catlist as \$autoindex => \$catlist):
 	if(\$autoindex >= $limit) break;
 	\$catlist['url'] = getUrl(\$catlist);
+	//判断是否有子栏目
+	\$subcat = Category::unlimitedForLayer(\$__catlist, 'child', \$catlist['id']);
+	if(!empty(\$subcat)){
+		\$catlist['hasSub'] = true;
+	}
+	
 ?>
 str;
 
@@ -400,18 +411,22 @@ str;
 		//$attr = $this->parseXmlAttr($attr, 'navlist');
 		$attr = !empty($attr)? $this->parseXmlAttr($attr, 'navlist') : null;
 		
-		$typeid = $attr['typeid'] == '' ? I('get.cid', 0, 'intval') : intval($attr['typeid']);//不能用empty,0,'','0',会认为true
-		print_r($attr);
+		
+		//$typeid = $attr['typeid'] == '' ? I('get.cid', 0, 'intval') : intval($attr['typeid']);//不能用empty,0,'','0',会认为true
+		$typeid = !isset($attr['typeid']) || $attr['typeid'] == '' ? I('get.cid', 0, 'intval') : trim($attr['typeid']);//只接收一个栏目ID
+		//echo '###'.$typeid;
+		
+		
+		
 		$str = <<<str
 <?php
 	\$_navlist = getCategory(1);
 	import('Class.Category', APP_PATH);	
 	
-	\$typeid = '$typeid';
+	\$typeid = $typeid;
 	if($typeid == 0) {
 		\$_navlist  = Category::unlimitedForLayer(\$_navlist);
 	}else {
-		echo 'typeid'.\$typeid;
 		\$_navlist  = Category::unlimitedForLayer(\$_navlist, 'child', $typeid);
 	}
 

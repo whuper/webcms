@@ -2,20 +2,18 @@
 	
 
 
-	<div class="row">
 
-	<div class="col-sm-8 col-md-8">
-		 
-	<div class="ftlink clearfix ">
-				<volist name="nav_list" id="vo" offset="0" length='5'>
-				
-				<a href="{$vo.url}">{$vo.name}</a>
-			
-				</volist>
-				
-      <!--<yang:sitetitle />-->
-        
-    </div>
+	<div class="row">
+	<div class="col-sm-3 col-md-3">
+
+	</div>
+			<div class="col-sm-3 col-md-3">
+		 <div class="text-center" >
+		 	<img class="code" src="__PUBLIC__/images/logo.png" />
+		 </div>
+		<p class="text-center">
+		 <yang:company /> 
+		</p>
 	</div>
 
 	<div class="col-sm-3 col-md-3">
@@ -27,14 +25,45 @@
 		</p>
 	</div>
 
+		
+	</div>
+
+		<div class="row">
+			<p>
+</p>
+			<div class="col-sm-3 col-md-3">
+				</div>
+
+	<div class="col-sm-6 col-md-6">
+		 
+		<div class="btn-group btn-group-justified" role="group" aria-label="...">
+
+				<a class="btn" href="__APP__">网站首页</a>
+				<volist name="nav_list" id="vo" offset="0" length='5'>
+				
+				<a class="btn" href="{$vo.url}">{$vo.name}</a>
+			
+				</volist>
+</div>
+<p>
+</p>
+				
+        
+	</div>
 
 		
 	</div>
+	<!--row //-->
+	
 	
 
     <div class="copyright">
-       <p class="foot-icp">
-           浙ICP备09007265号 版权所有© <yang:company /> <yang:address />
+		<p>
+		 <yang:sitetitle />
+		</p>
+       <p class="text-center">
+           浙ICP备******号 版权所有© <yang:company /> 
+		   公司地址:<yang:address />
 	</p>
     </div>
 

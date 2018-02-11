@@ -1,17 +1,30 @@
 <include file="Public:header" />
 <!--单页详细-->
-<div class="public_txt bjf4">
+<div class="container">
 
-<div class="n_search_tit">
-  	 <b>搜索结果</b><span class="red more">关键字：{$keyword} </span>
+<div class="page-header">
+  	<h3> 搜索结果 <small>关键字：{$keyword} </small> </h3>
   </div>
 
-  <div class="news_bar" id="search">
-    <ul>
+  	<div class="row">
+    <ul class="list-group">
 
        <yang:list  keyword="$keyword">
-           <li>
-        <a href="{$list.url}">{$list.title}</a> 
+			   <if condition="!$list['title']"> 
+			   <div class="jumbotron">
+		  <h2>抱歉,没有搜索到您想要的结果</h2>
+		  <p>...</p>
+		  <p><a class="btn btn-primary btn-lg" href="{:U('List/index',array('cid'=>1))}" role="button">随便看看</a></p>
+		</div> 
+		</if>
+           <li class="list-group-item">
+         <a href="{$list.url}">{$list.title}{$list.nodata}</a> 
+		  <if condition="$list['title']"> 
+		 <span class="time">{$list.updatetime|date_trancer} </span>
+		  </if> 
+	 <p class="list-group-item-text">
+      {$list.description}
+	  </p>
       </li>
 </yang:list>
 

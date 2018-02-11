@@ -30,9 +30,7 @@ class CommonAction extends Action {
                 $nav_list[$key]['sub_nav'] = D('Category')->where('pid='.$val['id'].' AND status=1')->select();
                 
                 foreach ($nav_list[$key]['sub_nav'] as $key2=>$val2){
-                    //$nav_list[$key]['sub_nav'][$key2] = $this->changurl($val2);
-			//$nav_list[$key]['sub_nav']['url'] = getUrl($val2);
-			$nav_list[$key]['sub_nav'][$key2]['url'] = getUrl($val2);
+					$nav_list[$key]['sub_nav'][$key2]['url'] = getUrl($val2);
                 }
 		}
 		

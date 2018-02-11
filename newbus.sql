@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50537
 File Encoding         : 65001
 
-Date: 2018-02-10 21:28:15
+Date: 2018-02-11 17:09:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1556,16 +1556,16 @@ CREATE TABLE `tp_category` (
 -- ----------------------------
 -- Records of tp_category
 -- ----------------------------
-INSERT INTO `tp_category` VALUES ('1', '产品展示 ', 'chanpinzhongxin', '0', '3', '0', '', '', '', '', 'List_product.html', 'Show_article.html', null, '1', '1', 'product.jpg');
-INSERT INTO `tp_category` VALUES ('2', '新闻动态', 'xinwendongtai', '0', '1', '0', '', '', '', '', 'List_news.html', 'Show_article.html', null, '1', '1', 'news.jpg');
-INSERT INTO `tp_category` VALUES ('3', '私人定制', 'qiyejieshao', '0', '2', '0', '', '', '', '', 'List_page.html', 'Show_article.html', null, '1', '1', 'kinglong.jpg');
-INSERT INTO `tp_category` VALUES ('4', '联系我们', 'lianxiwomen', '0', '2', '0', '', '', '	厦龙房车\r\n\r\n销售总部地址：杭州市石祥路589号杭州国际会展中心（汽车城）\r\n\r\n改装厂地址：厦门市集美区灌口镇\r\n\r\n400全国免费咨询热线：400-858-0868\r\n \r\n\r\n\r\n	 \r\n', '', 'List_page.html', 'Show_article.html', '<p>\r\n	<span style=\"font-weight:bold;\"><br />\r\n</span>\r\n</p>\r\n<p>\r\n	<span style=\"font-weight:bold;\">厦龙房车<br />\r\n<br />\r\n销售总部地址：杭州市石祥路589号杭州国际会展中心（汽车城）<br />\r\n<br />\r\n改装厂地址：厦门市集美区灌口镇<br />\r\n<br />\r\n400全国免费咨询热线：400-858-0868<br />\r\n</span> \r\n</p>\r\n<p>\r\n	<span style=\"font-weight:bold;\"><br />\r\n</span>\r\n</p>\r\n<p>\r\n	<span style=\"font-weight:bold;\"><br />\r\n</span>\r\n</p>\r\n<p>\r\n	<span style=\"font-weight:bold;\"></span> \r\n</p>', '1', '1', 'price.jpg');
-INSERT INTO `tp_category` VALUES ('5', '专项服务车', 'chanpinfenlei1', '1', '3', '0', '', '', '', '', 'List_product.html', 'Show_article.html', null, '1', '1', 'product.jpg');
-INSERT INTO `tp_category` VALUES ('6', '商务/旅居车系列', 'chanpinfenlei2', '1', '3', '0', '', '', '', '', 'List_product.html', 'Show_article.html', null, '1', '1', 'product.jpg');
-INSERT INTO `tp_category` VALUES ('7', '楼盘/产品展示车系列', 'zhongxingshangwuchegaizhuang', '1', '3', '0', '', '', '', '', 'List_product.html', 'Show_article.html', null, '1', '1', '');
-INSERT INTO `tp_category` VALUES ('8', '活动体验车系列', 'chanpinzhanshiche', '1', '3', '0', '', '', '', '', 'List_product.html', 'Show_article.html', null, '1', '1', '');
-INSERT INTO `tp_category` VALUES ('9', '其他特种车系列', 'xialongqiche', '1', '3', '0', '', '', '', '', 'List_product.html', 'Show_article.html', null, '1', '1', '');
-INSERT INTO `tp_category` VALUES ('10', '新栏目', 'xinlanmu', '5', '3', '0', '', '', '', '', 'List_product.html', 'Show_article.html', null, '1', '1', null);
+INSERT INTO `tp_category` VALUES ('1', '产品展示 ', 'chanpinzhongxin', '0', '3', '0', '', '', '', '', 'List_product.html', 'Show_product.html', null, '1', '1', '');
+INSERT INTO `tp_category` VALUES ('2', '新闻动态', 'xinwendongtai', '0', '1', '0', '', '', '', '', 'List_news.html', 'Show_article.html', null, '1', '1', '');
+INSERT INTO `tp_category` VALUES ('3', '私人定制', 'qiyejieshao', '0', '2', '0', '', '', '', '', 'List_page.html', 'Show_article.html', null, '1', '1', '');
+INSERT INTO `tp_category` VALUES ('4', '联系我们', 'lianxiwomen', '0', '2', '0', '', '', '	厦龙房车\r\n\r\n销售总部地址：杭州市石祥路589号杭州国际会展中心（汽车城）\r\n\r\n改装厂地址：厦门市集美区灌口镇\r\n\r\n400全国免费咨询热线：400-858-0868\r\n \r\n\r\n\r\n	 \r\n', '', 'List_page.html', 'Show_article.html', '<p>\r\n	<span style=\"font-weight:bold;\"><br />\r\n</span>\r\n</p>\r\n<p>\r\n	<span style=\"font-weight:bold;\">厦龙房车<br />\r\n<br />\r\n销售总部地址：杭州市石祥路589号杭州国际会展中心（汽车城）<br />\r\n<br />\r\n改装厂地址：厦门市集美区灌口镇<br />\r\n<br />\r\n400全国免费咨询热线：400-858-0868<br />\r\n</span> \r\n</p>\r\n<p>\r\n	<span style=\"font-weight:bold;\"><br />\r\n</span>\r\n</p>\r\n<p>\r\n	<span style=\"font-weight:bold;\"><br />\r\n</span>\r\n</p>\r\n<p>\r\n	<span style=\"font-weight:bold;\"></span> \r\n</p>', '1', '1', '');
+INSERT INTO `tp_category` VALUES ('5', '专项服务车', 'chanpinfenlei1', '1', '3', '0', '', '', '', '', 'List_product.html', 'Show_product.html', null, '1', '1', '');
+INSERT INTO `tp_category` VALUES ('6', '商务/旅居车系列', 'chanpinfenlei2', '1', '3', '0', '', '', '', '', 'List_product.html', 'Show_product.html', null, '1', '1', '');
+INSERT INTO `tp_category` VALUES ('7', '楼盘/产品展示车系列', 'zhongxingshangwuchegaizhuang', '1', '3', '0', '', '', '', '', 'List_product.html', 'Show_product.html', null, '1', '1', '');
+INSERT INTO `tp_category` VALUES ('8', '活动体验车系列', 'chanpinzhanshiche', '1', '3', '0', '', '', '', '', 'List_product.html', 'Show_product.html', null, '1', '1', '');
+INSERT INTO `tp_category` VALUES ('9', '其他特种车系列', 'xialongqiche', '1', '3', '0', '', '', '', '', 'List_product.html', 'Show_product.html', null, '1', '1', '');
+INSERT INTO `tp_category` VALUES ('10', '新栏目', 'xinlanmu', '5', '3', '0', '', '', '', '', 'List_product.html', 'Show_product.html', null, '1', '1', null);
 
 -- ----------------------------
 -- Table structure for `tp_comment`
