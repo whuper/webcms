@@ -1,16 +1,60 @@
 <include file="Public:header" />
+<script type="text/javascript" src="__PUBLIC__/js/thumscroll.js"></script>
+
 <div class="container padding30">
 	<div class="page-header">
-  <h3>{$content.title}<small> {$content.updatetime|date_trancer}</small></h3>
+		<h5 >您当前的位置：<yang:position /></h5>
+  <h2>{$content.title}<small> </small></h2>
+  <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$content.updatetime|date_trancer}-->
 </div>
+
+<!--图片轮播-->
+<div class="pic-box">
+	
+
+
+<script type="text/javascript">  
+$(document).ready(function(){  
+    $.manualScroll({  
+        objId:"scrollDiv",  
+        showArea:"showArea",  
+        showTitle: true,  
+		showWidth:750,
+		showHeight:450,
+        height:90,  
+        width:140,  
+        line:5,  
+        speed:1000  
+    });  
+});  
+  
+</script>  
+ <div id="showArea"></div>  
+    <div id="scrollDiv">  
+		 <a id="" class="carousel-control left " href="javascipt:void(0)" 
+        data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </a>
+    <a id=""  class="carousel-control right" href="javascipt:void(0)" 
+        data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </a>
+      <ul>  
+		  <foreach name="content['pictureurls']" item="v">
+        <li><a href="javascipt:void(0)"><img src="{$v['url']}" /></a></li>
+		</foreach>
+   
+      </ul>  
+    </div>  
+	</div>
+	<!--图片轮播结束 //-->
+	
 		
 		<!--<p>
 	 <a href="{:U('List/index', array( 'cid' => $cate['id'] ))}" >返回列表</a></li>
 		</p>-->
 		
-		<div class="article">
-		 {$content.content}		
-		</div>
+	
 
 		<div>
 
@@ -24,19 +68,29 @@
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">...</div>
-    <div role="tabpanel" class="tab-pane" id="profile">...</div>
-    <div role="tabpanel" class="tab-pane" id="messages">...</div>
-    <div role="tabpanel" class="tab-pane" id="settings">...</div>
+    <div role="tabpanel" class="tab-pane active" id="home"> </div>
+    <div role="tabpanel" class="tab-pane" id="profile"> </div>
+    <div role="tabpanel" class="tab-pane" id="messages"> </div>
+    <div role="tabpanel" class="tab-pane" id="settings"> </div>
   </div>
 
 </div>
 <!--tabs-->
-	<h3> 相关车型 </h3>
-	<div class="row">
 
-			<yang:list typeid="$cid" infolen="80"  pagesize="10">  
+<div class="article">
+		 {$content.content}		
+</div>
+
+
+	<h3> 相关车型 </h3>
+	<div class="row" data-typeid="{$cate['id']}">
+
+			<yang:list typeid="$cate['id']" infolen="80"  pagesize="5">  
 			<div class="col-xs-4 col-md-4">
+				<div class="thumbnail">
+					
+			
+				
 				<a href="{$list.url}" class="thumbnail">
 					<img src="{$list.litpic|default='uploads/system/nopic.png'}" alt="{$list.title}">
 				</a>
@@ -44,6 +98,7 @@
 				{$list.title|msubstr=0,44,'utf-8',false}
 				</p>
 				 <!--<p>{$list.description}</p>-->
+				 	</div>
 			  </div>
 				</yang:list>  
 		

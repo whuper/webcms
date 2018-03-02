@@ -28,19 +28,27 @@
 </head>
 <body>                                          
 
-<nav class="navbar navbar-default <?php if($cid or $cate): ?>cata<?php endif; ?> " role="navigation">
+<nav id="top" class="navbar navbar-default <?php if($cid or $cate): ?>cata<?php endif; ?> " role="navigation">
     <div class="container">
-    <div class="navbar-header text-center">
 			
-        <a class="navbar-brand" href="__APP__">
-		<img class="logo" src="__PUBLIC__/images/logo2.png" />
-		</a>
+
+    <div class="navbar-header">
+
+		<div class="navbar-brand">
+        		<img class="logo img-responsive" src="__PUBLIC__/images/logo2.png"/>
+        </div>
+	
+		 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navBar">  
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
 
     </div>
-    <div>
+    <div class="collapse navbar-collapse" id="navBar">
         <ul class="nav navbar-nav">
 			<li class="text-center" id="nav_<?php echo ($vo["id"]); ?>"> <a href="__APP__">网站首页</a> </li>
-			<?php if(is_array($nav_list)): $i = 0; $__LIST__ = array_slice($nav_list,0,6,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li class="text-center" id="nav_<?php echo ($vo["id"]); ?>"  <?php if(!empty($vo["sub_nav"])): ?>class="dropdown"<?php endif; ?> >
+			<?php if(is_array($nav_list)): $i = 0; $__LIST__ = array_slice($nav_list,0,6,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li class="text-center <?php if(!empty($vo["sub_nav"])): ?>dropdown<?php endif; ?>" id="nav_<?php echo ($vo["id"]); ?>"   >
 							<a href="<?php echo ($vo["url"]); ?>"><?php echo ($vo["name"]); ?></a>
 				 <?php if(!empty($vo["sub_nav"])): ?><ul class="dropdown-menu hidden-xs">
 								<?php if(is_array($vo["sub_nav"])): $i = 0; $__LIST__ = $vo["sub_nav"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): $mod = ($i % 2 );++$i;?><li><a href="<?php echo ($sub["url"]); ?>" 	<?php if($sub['type'] == 2): ?>target="_blank"<?php endif; ?> ><?php echo ($sub["name"]); ?></a></li>
@@ -58,7 +66,7 @@
     </div>
 </nav>
 
-<?php if($cid or $cate): ?><div class="container-fluid cata-bg" style="background-image:url(__PUBLIC__/images/<?php echo (($cata_pic)?($cata_pic):"vehicle.jpg"); ?>);">
+<?php if($cid or $cate): ?><div class="container-fluid cata-bg hidden-xs" style="background-image:url(__PUBLIC__/images/<?php echo (($cata_pic)?($cata_pic):"vehicle.jpg?t=24"); ?>);">
 	
 </div><?php endif; ?>
 
@@ -68,7 +76,7 @@
 	<div class="row cata-list-box">
 		
 
-	   <ul class="nav navbar-nav">
+	   <ul class="nav navbar-nav hidden-xs">
 				<?php
  $typeid = intval(1); $type = 'son'; $__catlist = getCategory(0); import('Class.Category', APP_PATH); if (0 == 0) { $__catlist = Category::clearPageAndLink($__catlist); } if($typeid == 0 || $type == 'top') { $_catlist = Category::unlimitedForLayer($__catlist); }else { if ($type == 'self') { $_typeinfo = Category::getSelf($__catlist, $typeid ); $_catlist = Category::unlimitedForLayer($__catlist, 'child', $_typeinfo['pid']); }else { $_catlist = Category::unlimitedForLayer($__catlist, 'child', $typeid); } } foreach($_catlist as $autoindex => $catlist): if($autoindex >= 10) break; $catlist['url'] = getUrl($catlist); $subcat = Category::unlimitedForLayer($__catlist, 'child', $catlist['id']); if(!empty($subcat)){ $catlist['hasSub'] = true; } ?><li <?php if($catlist['hasSub']): ?>class="dropdown"<?php endif; ?> > <a href="<?php echo ($catlist["url"]); ?>"> <?php echo ($catlist["name"]); ?></a> 
 					<?php if($catlist['hasSub']): ?><ul class="dropdown-menu" >
@@ -83,11 +91,14 @@
 
 	</div>
 	<div class="row search-box">
+		<h5 >您当前的位置：<?php
+ $_sname = ""; if (1 == 0 && $_sname == '') { $_sname = isset($title) ? $title : ''; } echo getPosition(1, $_sname, "", 0, ""); ?></h5>
+
 		<div class="col-xs-8 col-md-8">
 			</div>
 
 			<div class="col-xs-4 col-md-4">
-					 <form class="navbar-form navbar-right" method="post" action="/webcms/index.php?s=/Search/index.html">
+					 <form class="navbar-form navbar-right hidden-xs" method="post" action="/webcms/index.php?s=/Search/index.html">
         <div class="form-group">
          <input type="text" name="keyword" type="text" id="keyword" class="form-control" placeholder="请输入型号">
         </div>
@@ -99,21 +110,27 @@
                
 			<div class="row">
 			<?php
- $typeid = $cid; $keyword = ""; $nochild = "0"; if ($typeid>0 || substr($typeid,0,1) == '$') { import('Class.Category', APP_PATH); $_selfcate = Category::getSelf(getCategory(), $typeid); $_tablename = strtolower($_selfcate['tablename']); if($nochild){ $ids = $typeid; }else { $ids = Category::getChildsId(getCategory(), $typeid, true); } $where = array($_tablename.'.status' => 0, $_tablename .'.cid'=> array('IN',$ids)); }else { $_tablename = 'article'; $where = array($_tablename.'.status' => 0); } if ($keyword != '') { $where[$_tablename.'.title'] = array('like','%'.$keyword.'%'); $isSearch = true; } if (0 > 0) { $where['_string'] = $_tablename.'.flag & 0 = 0 '; } if (!empty($_tablename) && $_tablename != 'page') { if (10 > 0) { import('ORG.Util.Page'); $count = D(ucfirst($_tablename ).'View')->where($where)->count(); $thisPage = new Page($count, 10); $ename = I('e', '', 'trim'); if (!empty($ename) && C('URL_ROUTER_ON') == true) { $thisPage->url = ''.$ename. '/p'; } $thisPage->rollPage = 5; $thisPage->setConfig('header','条记录'); $thisPage->setConfig('first', '第一页'); $thisPage->setConfig('last', '最后一页'); $thisPage->setConfig('prev', '上一页'); $thisPage->setConfig('next', '下一页'); $thisPage->setConfig('theme', ' %nowPage%/%totalPage% 页 %upPage% %downPage%  %prePage% %linkPage% %nextPage%'); $limit = $thisPage->firstRow. ',' .$thisPage->listRows; $page = $thisPage->show(); }else { $limit = "10"; } $_list = D(ucfirst($_tablename ).'View')->where($where)->order("weight desc,id DESC")->limit($limit)->select(); if (empty($_list)) { if($isSearch){ $_list = array("nodata"=>true); } else { $_list = array(); } } }else { $_list = array(); } foreach($_list as $autoindex => $list): $_jumpflag = ($list['flag'] & B_JUMP) == B_JUMP? true : false; $list['url'] = getContentUrl($list['id'], $list['cid'], $list['ename'], $_jumpflag, $list['jumpurl']); if(0) $list['title'] = str2sub($list['title'], 0, 0); if(80) $list['description'] = str2sub($list['description'], 80, 0); ?><div class="col-xs-3 col-md-3">
-				<a href="<?php echo ($list["url"]); ?>" class="thumbnail">
+ $typeid = $cid; $keyword = ""; $nochild = "0"; if ($typeid>0 || substr($typeid,0,1) == '$') { import('Class.Category', APP_PATH); $_selfcate = Category::getSelf(getCategory(), $typeid); $_tablename = strtolower($_selfcate['tablename']); if($nochild){ $ids = $typeid; }else { $ids = Category::getChildsId(getCategory(), $typeid, true); } $where = array($_tablename.'.status' => 0, $_tablename .'.cid'=> array('IN',$ids)); }else { $_tablename = 'article'; $where = array($_tablename.'.status' => 0); } if ($keyword != '') { $where[$_tablename.'.title'] = array('like','%'.$keyword.'%'); $isSearch = true; } if (0 > 0) { $where['_string'] = $_tablename.'.flag & 0 = 0 '; } if (!empty($_tablename) && $_tablename != 'page') { if (10 > 0) { import('ORG.Util.Page'); $count = D(ucfirst($_tablename ).'View')->where($where)->count(); $thisPage = new Page($count, 10); $ename = I('e', '', 'trim'); if (!empty($ename) && C('URL_ROUTER_ON') == true) { $thisPage->url = ''.$ename. '/p'; } $thisPage->rollPage = 5; $thisPage->setConfig('header','条记录'); $thisPage->setConfig('first', '第一页'); $thisPage->setConfig('last', '最后一页'); $thisPage->setConfig('prev', '上一页'); $thisPage->setConfig('next', '下一页'); $thisPage->setConfig('theme', '<li><a>%totalRow% %header%</a></li>  %upPage% %downPage%  %prePage% %linkPage% %nextPage%'); $limit = $thisPage->firstRow. ',' .$thisPage->listRows; $page = $thisPage->show(); }else { $limit = "10"; } $_list = D(ucfirst($_tablename ).'View')->where($where)->order("weight desc,id DESC")->limit($limit)->select(); if (empty($_list)) { if($isSearch){ $_list = array("nodata"=>true); } else { $_list = array(); } } }else { $_list = array(); } foreach($_list as $autoindex => $list): $_jumpflag = ($list['flag'] & B_JUMP) == B_JUMP? true : false; $list['url'] = getContentUrl($list['id'], $list['cid'], $list['ename'], $_jumpflag, $list['jumpurl']); if(0) $list['title'] = str2sub($list['title'], 0, 0); if(80) $list['description'] = str2sub($list['description'], 80, 0); ?><div class="col-xs-6 col-md-3">
+				<div class="thumbnail">
+					
+			
+				
+				<a href="<?php echo ($list["url"]); ?>" >
 					<img src="<?php echo (($list["litpic"])?($list["litpic"]):'uploads/system/nopic.png'); ?>" alt="<?php echo ($list["title"]); ?>">
 				</a>
 				<p>
 				<?php echo (msubstr($list["title"],0,44,'utf-8',false)); ?>
 				</p>
 				 <!--<p><?php echo ($list["description"]); ?></p>-->
+				 	</div>
 			  </div><?php endforeach;?>  
 			</div>
 
-			          <div class="pagelist">
+			          <nav aria-label="Page navigation">
+		 <ul class="pagination">
 								<?php echo ($page); ?>
-							</div>  
-
+						  </ul>
+		</nav>
 
 							
 		
@@ -185,6 +202,39 @@
 	</p>
     </div>
 
+</div>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9dd680c607d2c15c84566c6077f088ff";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<div class="back-box">
+<!--	
+<a href="javascript:void(0)" class=" text-center">
+	<p class="text-center">
+	<img src="__PUBLIC__/images/icon_support.png" />
+	</p>
+	
+	<p class="title">
+	在线客服
+	</p>
+	
+</a>
+-->
+<a href="#top" class="back-to-top text-center">
+		<p>
+	<img src="__PUBLIC__/images/icon_top.png" />
+	</p>
+	<!--<p class="title">
+	返回顶部
+	</p>-->
+	
+</a>
 </div>
 
 

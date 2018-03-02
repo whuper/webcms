@@ -179,7 +179,7 @@ class TagLibYang extends TagLib {
 			\$thisPage->setConfig('last', '最后一页');
 			\$thisPage->setConfig('prev', '上一页');
 			\$thisPage->setConfig('next', '下一页');
-			\$thisPage->setConfig('theme', ' %nowPage%/%totalPage% 页 %upPage% %downPage%  %prePage% %linkPage% %nextPage%');
+			\$thisPage->setConfig('theme', '<li><a>%totalRow% %header%</a></li>  %upPage% %downPage%  %prePage% %linkPage% %nextPage%');
 
 			\$limit = \$thisPage->firstRow. ',' .\$thisPage->listRows;	
 			\$page = \$thisPage->show();

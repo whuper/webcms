@@ -1,3 +1,5 @@
 .DS_Store
 *.log
 App/Runtime/**/*.*
+uploads/kindedit/**/*.jpg
+uploads/img1/**/*.jpg

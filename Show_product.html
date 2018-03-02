@@ -1,16 +1,13 @@
 <include file="Public:header" />
 <div class="container padding30">
 	<div class="page-header">
-			<h5 >您当前的位置：<yang:position /></h5>
-  <h3>{$content.title}<small> </small></h3>
-  <!--{$content.updatetime|date_trancer}-->
+  <h3>{$content.title}<small> {$content.updatetime|date_trancer}</small></h3>
 </div>
 		
 		<!--<p>
 	 <a href="{:U('List/index', array( 'cid' => $cate['id'] ))}" >返回列表</a></li>
 		</p>-->
 		
-	
 		<div class="article">
 		 {$content.content}		
 		</div>

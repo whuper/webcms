@@ -49,8 +49,8 @@ $('.carousel').carousel({
 
 	<table class="table table-condensed">
 		<tr>
-			<for start="1" end="10"> 
-			<td><img class="brnad-ico" src="__PUBLIC__/images/{$i}.jpg" /></td>
+			<for start="1" end="11"> 
+			<td><img class="brand-ico" src="__PUBLIC__/images/{$i}.jpg?t=2" /></td>
 			</for>  
 		</tr>
 	</table>
@@ -64,62 +64,24 @@ $('.carousel').carousel({
 
 
 <div class="row mar-top">
+	 <yang:list typeid="1" flag="15"  pagesize="4">
   <div class="col-sm-3 col-md-3">
 
     <div class="thumbnail">
-      <img src="__PUBLIC__/images/excellegt.png" alt="...">
+      <img src="{$list.litpic|default='uploads/system/nopic.png'}" alt="...">
       <div class="caption">
         <!--<h3>Thumbnail label</h3>-->
-        <p>Thumbnail label</p>
+        <p>{$list.title}</p>
       </div>
 	  <p class="view-box text-right">
-	  <a href="#" class="btn btn-default" role="button">查看详情</a>
+	  <a href="{$list.url}" class="btn btn-default" role="button">查看详情</a>
 	  </p>
     </div>
 
   </div>
-
-  <div class="col-sm-3 col-md-3">
-
-    <div class="thumbnail">
-      <img src="__PUBLIC__/images/excellegt.png" alt="...">
-      <div class="caption">
-        <!--<h3>Thumbnail label</h3>-->
-        <p>Thumbnail label.</p>
-      </div>
-	   <p class="view-box text-right">
-	  <a href="#" class="btn btn-default" role="button">查看详情</a>
-	  </p>
-    </div>
+   </yang:list>
 
   </div>
-
-   <div class="col-sm-3 col-md-3">
-
-    <div class="thumbnail">
-      <img src="__PUBLIC__/images/excellegt.png" alt="...">
-      <div class="caption">
-        <!--<h3>Thumbnail label</h3>-->
-        <p>Thumbnail label</p>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="col-sm-3 col-md-3">
-
-    <div class="thumbnail">
-      <img src="__PUBLIC__/images/excellegt.png" alt="...">
-      <div class="caption">
-        <!--<h3>Thumbnail label</h3>-->
-        <p>Thumbnail label.</p>
-      </div>
-    </div>
-
-  </div>
-
-
-</div>
 <!--row //-->
 
 <div class="row">
@@ -133,7 +95,7 @@ $('.carousel').carousel({
   <div class="panel-body">
    		 <ul class="list">
 		 <yang:list typeid="2" infolen="80"  pagesize="10">
-		 <li class="list"> <a href="{$list.url}"> {$list.title} </a> <span class="time hidden-xs"> {$list.updatetime|date_trancer}</span></li>
+		 <li class="list"> <a href="{$list.url}"> {$list.title|msubstr=0,15} </a> <span class="time hidden-xs"> {$list.updatetime|date_trancer}</span></li>
 		</yang:list>
 
 </ul>
@@ -147,9 +109,15 @@ $('.carousel').carousel({
 		 <div class="col-sm-4 col-md-4">
 			 	 <div class="panel panel-default">
 		 <div class="panel-heading">
-    <h3 class="panel-title">优惠活动</h3>
+    <h3 class="panel-title"><yang:type typeid="11" >{$type.name} </yang:type></h3>
   </div>
   <div class="panel-body">
+	  	 <ul class="list">
+		 <yang:list typeid="11" infolen="80"  pagesize="10">
+		 <li class="list"> <a href="{$list.url}"> {$list.title|msubstr=0,15} </a> <span class="time hidden-xs"> {$list.updatetime|date_trancer}</span></li>
+		</yang:list>
+
+</ul>
 
   </div>
  
@@ -161,9 +129,14 @@ $('.carousel').carousel({
 
 			 	 	 <div class="panel panel-default">
 		 <div class="panel-heading">
-    <h3 class="panel-title">售前咨询</h3>
+    <h3 class="panel-title"><yang:type typeid="12" >{$type.name}</yang:type></h3>
   </div>
   <div class="panel-body">
+	  <p>
+	  <yang:type typeid="12" >
+	  {$type.description|msubstr=0,65,'utf-8',false}
+	  </yang:type>
+	  </p>
 
   </div>
  
@@ -177,90 +150,22 @@ $('.carousel').carousel({
 
 <h3>推荐车型 </h3>
 <div class="row">
+	<yang:list typeid="1" flag="7"  pagesize="40">
   <div class="col-sm-3 col-md-3">
 
+	   
     <div class="thumbnail">
-      <img src="__PUBLIC__/images/excellegt.png" alt="...">
+      <a href="{$list.url}">
+		  <img src="{$list.litpic|default='uploads/system/nopic.png'}">
       <div class="caption">
         <!--<h3>Thumbnail label</h3>-->
-        <p>Thumbnail label</p>
+        <p>{$list.title}</p>
       </div>
+	   </a>
     </div>
 
   </div>
-
-  <div class="col-sm-3 col-md-3">
-
-    <div class="thumbnail">
-      <img src="__PUBLIC__/images/excellegt.png" alt="...">
-      <div class="caption">
-        <!--<h3>Thumbnail label</h3>-->
-        <p>Thumbnail label.</p>
-      </div>
-    </div>
-
-  </div>
-
-   <div class="col-sm-3 col-md-3">
-
-    <div class="thumbnail">
-      <img src="__PUBLIC__/images/excellegt.png" alt="...">
-      <div class="caption">
-        <!--<h3>Thumbnail label</h3>-->
-        <p>Thumbnail label</p>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="col-sm-3 col-md-3">
-
-    <div class="thumbnail">
-      <img src="__PUBLIC__/images/excellegt.png" alt="...">
-      <div class="caption">
-        <!--<h3>Thumbnail label</h3>-->
-        <p>Thumbnail label.</p>
-      </div>
-    </div>
-
-  </div>
-
-    <div class="col-sm-3 col-md-3">
-
-    <div class="thumbnail">
-      <img src="__PUBLIC__/images/excellegt.png" alt="...">
-      <div class="caption">
-        <!--<h3>Thumbnail label</h3>-->
-        <p>Thumbnail label.</p>
-      </div>
-    </div>
-
-  </div>
-
-
-    <div class="col-sm-3 col-md-3">
-
-    <div class="thumbnail">
-      <img src="__PUBLIC__/images/excellegt.png" alt="...">
-      <div class="caption">
-        <!--<h3>Thumbnail label</h3>-->
-        <p>Thumbnail label.</p>
-      </div>
-    </div>
-
-  </div>
-
-    <div class="col-sm-3 col-md-3">
-
-    <div class="thumbnail">
-      <img src="__PUBLIC__/images/excellegt.png" alt="...">
-      <div class="caption">
-        <!--<h3>Thumbnail label</h3>-->
-        <p>Thumbnail label.</p>
-      </div>
-    </div>
-
-  </div>
+  </yang:list>
 
 
 </div>
