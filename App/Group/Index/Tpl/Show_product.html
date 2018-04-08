@@ -1,5 +1,6 @@
 <include file="Public:header" />
-<script type="text/javascript" src="__PUBLIC__/js/thumscroll.js"></script>
+<link href="__PUBLIC__/css/scroll.css" rel="stylesheet">
+<script type="text/javascript" src="__PUBLIC__/js/thumscroll-new.js"></script>
 
 <div class="container padding30">
 	<div class="page-header">
@@ -16,38 +17,40 @@
 <script type="text/javascript">  
 $(document).ready(function(){  
     $.manualScroll({  
-        objId:"scrollDiv",  
-        showArea:"showArea",  
-        showTitle: true,  
-		showWidth:750,
-		showHeight:450,
-        height:90,  
-        width:140,  
-        line:5,  
+        id:"scrollBox",  
         speed:1000  
     });  
 });  
   
 </script>  
- <div id="showArea"></div>  
+
+<div id="scrollBox">
+
+	<div id="showArea">
+		<a href="javascript:void(0)"  class="hander prev" data-act="prev">  </a>
+		<a href="javascript:void(0)"  class="hander next" data-act="next">  </a>
+		
+	</div>  
     <div id="scrollDiv">  
-		 <a id="" class="carousel-control left " href="javascipt:void(0)" 
+      <ul class="scroll-ul clearfix">  
+         <foreach name="content['pictureurls']" item="v">
+        <li><a href="javascipt:void(0)"><img src="{$v['url']}" /></a></li>
+		</foreach>
+      </ul>  
+	<a class="carousel-control left hander prev" data-act="left" href="javascipt:void(0)" 
         data-slide="prev">
 		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     </a>
-    <a id=""  class="carousel-control right" href="javascipt:void(0)" 
+
+	<a class="carousel-control right hander next"  data-act="right" href="javascipt:void(0)" 
         data-slide="next">
 		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     </a>
-      <ul>  
-		  <foreach name="content['pictureurls']" item="v">
-        <li><a href="javascipt:void(0)"><img src="{$v['url']}" /></a></li>
-		</foreach>
-   
-      </ul>  
+
+
     </div>  
-	</div>
-	<!--图片轮播结束 //-->
+	
+</div>
 	
 		
 		<!--<p>

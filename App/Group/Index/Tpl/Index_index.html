@@ -49,10 +49,18 @@ $('.carousel').carousel({
 
 	<table class="table table-condensed">
 		<tr>
-			<for start="1" end="11"> 
-			<td><img class="brand-ico" src="__PUBLIC__/images/{$i}.jpg?t=2" /></td>
+		
+			<yang:list typeid="13" pagesize="10" orderby="id asc">
+			<td><a href="{$list.url}">
+					<img class="brand-ico" src="{$list.litpic}" />
+			</a></td>
+			 </yang:list>
+			 <!--
+				<for start="1" end="11"> 
+			$i
 			</for>  
-		</tr>
+			</tr>
+			-->
 	</table>
 	
 		
@@ -84,7 +92,7 @@ $('.carousel').carousel({
   </div>
 <!--row //-->
 
-<div class="row">
+<div class="row h400">
 
 	 <div class="col-sm-4 col-md-4">
 
@@ -94,7 +102,7 @@ $('.carousel').carousel({
   </div>
   <div class="panel-body">
    		 <ul class="list">
-		 <yang:list typeid="2" infolen="80"  pagesize="10">
+		 <yang:list typeid="2" infolen="80"  pagesize="5">
 		 <li class="list"> <a href="{$list.url}"> {$list.title|msubstr=0,15} </a> <span class="time hidden-xs"> {$list.updatetime|date_trancer}</span></li>
 		</yang:list>
 
@@ -106,23 +114,40 @@ $('.carousel').carousel({
 		 <!--col-md-4-->
 
 
+		<!--视频-->
 		 <div class="col-sm-4 col-md-4">
+	
 			 	 <div class="panel panel-default">
 		 <div class="panel-heading">
     <h3 class="panel-title"><yang:type typeid="11" >{$type.name} </yang:type></h3>
   </div>
   <div class="panel-body">
+	  		 <!--
 	  	 <ul class="list">
-		 <yang:list typeid="11" infolen="80"  pagesize="10">
+		 <yang:list typeid="11" infolen="80"  pagesize="5">
 		 <li class="list"> <a href="{$list.url}"> {$list.title|msubstr=0,15} </a> <span class="time hidden-xs"> {$list.updatetime|date_trancer}</span></li>
 		</yang:list>
 
 </ul>
+-->
+	<script type="text/javascript" src="__PUBLIC__/js/ckplayer/ckplayer.js"></script>
+	<div class="video" style="width: 320px;height:160px;"></div>
+	<script type="text/javascript">
+		var videoObject = {
+			container: '.video',//“#”代表容器的ID，“.”或“”代表容器的class
+			variable: 'player',//该属性必需设置，值等于下面的new chplayer()的对象
+			poster:'__PUBLIC__/images/poster.jpg',//封面图片
+			video:'__PUBLIC__/images/video.mp4'//视频地址
+		};
+		var player=new ckplayer(videoObject);
+	</script>
 
   </div>
  
 </div>
-		 </div>
+
+
+	 </div>
 		  <!--col-md-4-->
 
 		 <div class="col-sm-4 col-md-4">
@@ -134,7 +159,8 @@ $('.carousel').carousel({
   <div class="panel-body">
 	  <p>
 	  <yang:type typeid="12" >
-	  {$type.description|msubstr=0,65,'utf-8',false}
+	  <pre>{$type.description}</pre>
+	  <!--{$type.description|msubstr=0,65,'utf-8',false}-->
 	  </yang:type>
 	  </p>
 

@@ -146,6 +146,20 @@ $(function () {
 				</select>
 			</dd>
 		</dl>
+
+			<dl>
+			<dt>附属栏目(可不选)： </dt>
+		
+			<dd>
+			
+				<foreach name='cate' item='v'>
+				<input type="checkbox" name="subids[]" value="{$v.id}" <if condition="$v['id'] eq $pid"> checked="checked" disabled="disabled"</if> />
+				<span class=" ">{$v.name} </span> &nbsp;&nbsp;
+				</foreach>
+			
+			</dd>
+		</dl>
+
 		<dl>
 			<dt> 图片：</dt>
 			<dd>

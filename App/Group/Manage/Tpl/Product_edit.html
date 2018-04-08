@@ -142,11 +142,24 @@ $(function () {
 			<dd>
 				<select name="cid">
 					<foreach name='cate' item='v'>
-					<option value="{$v.id}" <if condition="$vo.cid eq $v['id']">selected="selected"</if>>{$v.delimiter}{$v.name}</option>
+						<option value="{$v.id}" <if condition="$vo.cid eq $v['id']">selected="selected"</if>>{$v.delimiter}{$v.name}</option>
 					</foreach>
 				</select>
 			</dd>
 		</dl>
+		<dl>
+			<dt>附属栏目(可不选)： </dt>
+		
+			<dd>
+			
+				<foreach name='cate' item='v'>
+				<input type="checkbox" name="subids[]" value="{$v.id}" <if condition="in_array($v['id'],$vo['subids']) or $v['id'] eq $vo['cid']"> checked="checked" disabled="disabled"</if> />
+				<span class=" ">{$v.name} </span> &nbsp;&nbsp;
+				</foreach>
+			
+			</dd>
+		</dl>
+
 		<dl>
 			<dt> 图片：</dt>
 			<dd>

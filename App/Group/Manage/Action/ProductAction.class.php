@@ -93,8 +93,9 @@ class ProductAction extends CommonContentAction {
 		$pictureurls_arr  = array();
 
 		$imgPostUrls = I('pictureurls', '');
-		//var_dump($imgPostUrls);
-		//exit();
+
+		$subids = I('subids','');
+	
 		if (is_array($imgPostUrls)) {
 			foreach ($imgPostUrls as $k => $v) {
 				$pictureurls_arr[] = $v.'$$$'.'$$$';//array('url'=> $v ,'alt'=> '');
@@ -150,6 +151,8 @@ class ProductAction extends CommonContentAction {
 
 		);
 
+		//附属栏目id
+		$data['subids'] = ','.join(',',$subids).',';
 
 		if($id = M('product')->add($data)) {
 			//更新上传附件表
@@ -222,7 +225,13 @@ class ProductAction extends CommonContentAction {
 				$pictureurls[] = array('url' => ''.$temparr2[0], 'alt' => ''.$temparr2[1]);
 			}
 		}
+
+		$subids = array();
+		if (!empty($vo['subids'])) {	
+			$subids = explode(',',trim($vo['subids'],','));		
+		}
 		
+		$vo['subids'] = $subids;
 		$vo['pictureurls'] = $pictureurls;
 		$vo['content'] = htmlspecialchars($vo['content']);
 		$this->vo = $vo;
@@ -257,6 +266,8 @@ class ProductAction extends CommonContentAction {
 		$id = $data['id'] ;
 		$pid = I('pid', 0, 'intval');
 		$flags = I('flags', array(),'intval');
+		$subids = I('subids','');
+
 		$title = I('title', '', 'trim');
 
 		if (empty($data['title'])) {
@@ -309,7 +320,8 @@ class ProductAction extends CommonContentAction {
 		foreach ($flags as $v) {
 			$data['flag'] += $v;
 		}
-
+		//附属栏目ids,数组转化为字符串
+		$data['subids'] = ','.join(',',$subids).',';
 		if (false !== M('product')->save($data)) {
 			
 			//del

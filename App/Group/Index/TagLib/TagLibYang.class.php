@@ -123,6 +123,7 @@ class TagLibYang extends TagLib {
 		$keyword = empty($attr['keyword'])? '': trim($attr['keyword']);
 
 		$nochild = empty($attr['nochild'])? 0: 1;
+		$multi = empty($attr['multi'])? 0: 1;
 		
 
 		$flag = flag2sum($flag);
@@ -132,17 +133,25 @@ class TagLibYang extends TagLib {
 	\$typeid = $typeid;	
 	\$keyword = "$keyword";
 	\$nochild = "$nochild";
+	\$multi = "$multi";
 	if (\$typeid>0 || substr(\$typeid,0,1) == '$') {
 		import('Class.Category', APP_PATH);
 		\$_selfcate = Category::getSelf(getCategory(), \$typeid);
 		\$_tablename = strtolower(\$_selfcate['tablename']);
 		if(\$nochild){
-		\$ids = \$typeid;
+			\$ids = \$typeid;
 		}else {
-
-		\$ids = Category::getChildsId(getCategory(), \$typeid, true);
-}
-		\$where = array(\$_tablename.'.status' => 0, \$_tablename .'.cid'=> array('IN',\$ids));
+			\$ids = Category::getChildsId(getCategory(), \$typeid, true);
+		}
+		if(\$multi){
+			\$where = array(\$_tablename.'.status' => 0, array(
+				\$_tablename .'.cid'=> array('IN',\$ids),
+				\$_tablename .'.subids'=> array('like','%,'. \$typeid .',%'),
+				'_logic'=>'or'
+			));
+		} else {
+			\$where = array(\$_tablename.'.status' => 0, \$_tablename .'.cid'=> array('IN',\$ids));
+			}
 	}else {
 		\$_tablename = 'article';
 		\$where = array(\$_tablename.'.status' => 0);
@@ -172,6 +181,9 @@ class TagLibYang extends TagLib {
 			if (!empty(\$ename) && C('URL_ROUTER_ON') == true) {
 				\$thisPage->url = ''.\$ename. '/p';
 			}
+
+		
+
 			//设置显示的页数
 			\$thisPage->rollPage = 5;
 			 \$thisPage->setConfig('header','条记录');
@@ -189,6 +201,9 @@ class TagLibYang extends TagLib {
 		}	
 
 		\$_list = D(ucfirst(\$_tablename ).'View')->where(\$where)->order("$orderby")->limit(\$limit)->select();
+
+			//print(D(ucfirst(\$_tablename ).'View')->getLastSql());
+
 		if (empty(\$_list)) {
 			if(\$isSearch){
 				\$_list = array("nodata"=>true);
@@ -201,7 +216,7 @@ class TagLibYang extends TagLib {
 		\$_list = array();
 	}
 
-//调用msubstr()
+	//调用msubstr()
 	//Load('extend');
 	//dump(\$_list);
 
