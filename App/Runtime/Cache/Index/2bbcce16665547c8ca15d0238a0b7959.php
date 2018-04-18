@@ -126,7 +126,7 @@ $('.carousel').carousel({
 					<img class="brand-ico" src="<?php echo ($list["litpic"]); ?>" />
 			</a></td><?php endforeach;?>
 			 <!--
-				<?php $__FOR_START_3705__=1;$__FOR_END_3705__=11;for($i=$__FOR_START_3705__;$i < $__FOR_END_3705__;$i+=1){ ?>$i<?php } ?>  
+				<?php $__FOR_START_11060__=1;$__FOR_END_11060__=11;for($i=$__FOR_START_11060__;$i < $__FOR_END_11060__;$i+=1){ ?>$i<?php } ?>  
 			</tr>
 			-->
 	</table>
@@ -347,22 +347,34 @@ var _hmt = _hmt || [];
 "></script>
 
 <div class="back-box">
-<!--	
-<a href="javascript:void(0)" class=" text-center">
-	<p class="text-center">
-	<img src="__PUBLIC__/images/icon_support.png" />
-	</p>
-	
-	<p class="title">
-	在线客服
-	</p>
-	
-</a>
--->
-<a href="#top" class="back-to-top text-center">
+<a href="#top" class="back-to-top margin-b text-center">
 		<p>
 	<img src="__PUBLIC__/images/icon_top.png" />
 	</p>
+	</a>
+<div class="phone-box margin-b">
+	<div class="show-box">
+	 <p>
+	  <?php
+ import('Class.Category', APP_PATH); $type = Category::getSelf(getCategory(0), 12); $type['url'] = getUrl($type); ?><pre><?php echo ($type["description"]); ?></pre>
+	  <!--<?php echo (msubstr($type["description"],0,65,'utf-8',false)); ?>-->
+	  </p>
+		
+	</div>
+	
+
+	<img src="__PUBLIC__/images/phone.jpg" />
+	
+</div>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+	$(".phone-box").hover(function(){  
+		$(this).find('.show-box').fadeIn();		
+	},function(){
+		$(this).find('.show-box').hide();	
+	}) ;	
+	  });
+</script>
 	<!--<p class="title">
 	返回顶部
 	</p>-->

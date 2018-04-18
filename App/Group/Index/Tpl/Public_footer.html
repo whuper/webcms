@@ -84,22 +84,35 @@ var _hmt = _hmt || [];
 "></script>
 
 <div class="back-box">
-<!--	
-<a href="javascript:void(0)" class=" text-center">
-	<p class="text-center">
-	<img src="__PUBLIC__/images/icon_support.png" />
-	</p>
-	
-	<p class="title">
-	在线客服
-	</p>
-	
-</a>
--->
-<a href="#top" class="back-to-top text-center">
+<a href="#top" class="back-to-top margin-b text-center">
 		<p>
 	<img src="__PUBLIC__/images/icon_top.png" />
 	</p>
+	</a>
+<div class="phone-box margin-b">
+	<div class="show-box">
+	 <p>
+	  <yang:type typeid="12" >
+	  <pre>{$type.description}</pre>
+	  <!--{$type.description|msubstr=0,65,'utf-8',false}-->
+	  </yang:type>
+	  </p>
+		
+	</div>
+	
+
+	<img src="__PUBLIC__/images/phone.jpg" />
+	
+</div>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+	$(".phone-box").hover(function(){  
+		$(this).find('.show-box').fadeIn();		
+	},function(){
+		$(this).find('.show-box').hide();	
+	}) ;	
+	  });
+</script>
 	<!--<p class="title">
 	返回顶部
 	</p>-->
