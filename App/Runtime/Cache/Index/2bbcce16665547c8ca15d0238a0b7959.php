@@ -15,6 +15,16 @@
 <script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
 
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d67026036025fc5506e189384eec2ec6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 <!--//当前导航栏样式-->
 <style type="text/css" media="screen">
 		#nav_<?php echo ($cid); ?>{
@@ -25,6 +35,7 @@
 			}
 
 </style>
+
 </head>
 <body>                                          
 
@@ -126,7 +137,7 @@ $('.carousel').carousel({
 					<img class="brand-ico" src="<?php echo ($list["litpic"]); ?>" />
 			</a></td><?php endforeach;?>
 			 <!--
-				<?php $__FOR_START_11060__=1;$__FOR_END_11060__=11;for($i=$__FOR_START_11060__;$i < $__FOR_END_11060__;$i+=1){ ?>$i<?php } ?>  
+				<?php $__FOR_START_9820__=1;$__FOR_END_9820__=11;for($i=$__FOR_START_9820__;$i < $__FOR_END_9820__;$i+=1){ ?>$i<?php } ?>  
 			</tr>
 			-->
 	</table>
@@ -354,11 +365,9 @@ var _hmt = _hmt || [];
 	</a>
 <div class="phone-box margin-b">
 	<div class="show-box">
-	 <p>
-	  <?php
- import('Class.Category', APP_PATH); $type = Category::getSelf(getCategory(0), 12); $type['url'] = getUrl($type); ?><pre><?php echo ($type["description"]); ?></pre>
-	  <!--<?php echo (msubstr($type["description"],0,65,'utf-8',false)); ?>-->
-	  </p>
+	 <h3 style="text-align:center;">联系电话</h3>
+	 <h4 style="text-align:center;">400-858-0868</h4>
+        <h4 style="text-align:center;">0571-28801713</h4>
 		
 	</div>
 	

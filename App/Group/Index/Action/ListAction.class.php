@@ -46,6 +46,8 @@ class ListAction extends CommonAction{
 		$replacements = array('', '');
 		$template_list = preg_replace($patterns, $replacements, $self['template_list']);
 		
+		print_r($template_list);
+		die();
 		if (empty($template_list)) {
 			$this->error('模板不存在');
 		}
